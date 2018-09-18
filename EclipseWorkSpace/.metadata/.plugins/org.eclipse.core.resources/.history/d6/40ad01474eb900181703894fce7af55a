@@ -1,0 +1,39 @@
+package 参数传值机制;
+
+import java.lang.reflect.Array;
+
+/**
+ * @author Gaoch
+ *
+ *分析内存状态 ，轻易就能理解参数传递状态̬
+ *
+ */
+public class User {
+	String name;
+	int id;
+	int age;
+	
+	public User(String name,int age) {
+		this.name = name;
+		this.age = age;
+	}
+	
+	void test1(User u) {
+		u.age = 20;
+		
+	}
+	
+	void test2(User u) {
+		u = new User("gaochuang",21);
+	}
+	public static void main(String[] args) {
+		User user = new User("gaochuang",18);
+		user.test1(user);
+		System.out.println(user.age);
+		user.test2(user);
+		System.out.println(user.age);
+		char [] c = new char[8];
+		int [] a = new int[8];
+		a = (int)a;
+	}
+}

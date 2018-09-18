@@ -1,0 +1,31 @@
+package com.gao.chapter.one;
+
+import java.util.Scanner;
+
+public class ThreeSort {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int x = sc.nextInt();
+		int y = sc.nextInt();
+		int z = sc.nextInt();
+		int maxVal = 0;
+		int midVal = 0;
+		int minVal = 0;
+	
+		minVal = x<y?x:y;
+		minVal = minVal<z?minVal:z;
+		
+	
+		maxVal = x<y?y:x;
+		maxVal = maxVal<z?z:maxVal;
+		
+		//midVal = x + y + z - maxVal - minVal;
+		midVal = x==minVal||x==maxVal?(y==minVal||y==maxVal?z:y):x;
+
+		
+		
+		System.out.println(minVal + " " + midVal + " " + maxVal);
+		
+	}
+}

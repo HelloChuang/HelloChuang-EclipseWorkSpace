@@ -1,0 +1,71 @@
+package com.gao.LinkedList;
+
+public class MyLinkedList {
+	private Node first;
+	private Node last;
+	
+	private int size;
+	
+	public void add(Object o) {
+		Node node = new Node();
+		if(first==null) {
+			node.setPrevious(null);
+			node.setNext(null);
+			node.setCurrent(o);
+			
+			first = node;
+			last = node;
+			
+		}else {
+			node.setCurrent(o);
+			node.setNext(null);
+			node.setPrevious(last);
+			
+			last.setNext(node);
+			last = node;
+		}
+		size++;
+	}
+	public Object get(int index) {
+		if(index<0||index>size) {
+			try {
+				throw new Exception();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		Node temp = first;
+		for(int i = 0;i<index;i++) {
+			
+			temp = temp.next;
+		}
+		return temp.current;
+	}
+	public void set(int index,Object o) {
+		Node temp = first;
+		for(int i = 0;i<index;i++) {
+			temp = temp.next;
+		}
+		temp.current = o;
+		
+		
+	}
+	public void print() {
+		Node temp = first;
+		for(int i =0;i<size;i++) {
+			System.out.println(temp.current.toString());
+			temp = temp.next;
+			
+		}
+	}
+	public int size() {
+		return size;
+	}
+	public void remove(int index) {
+		Node temp = first;
+		if(temp!=null) {
+			
+			
+		}
+}
+}

@@ -1,0 +1,45 @@
+package com.gao.chapter.one;
+
+public class FourSortInif {
+	public static void main(String[] args) {
+		int a = (int)(Math.random()*100);
+		int b = (int)(Math.random()*100);
+		int c = (int)(Math.random()*100);
+		int d = (int)(Math.random()*100);
+		
+		int temp;
+		if(a>b) {
+			temp = a;
+			a = b;
+			b = temp;
+			}
+		if(a>c) {
+			temp = a;
+			a = c;
+			c = temp;
+		}
+		if(a>d) {
+			temp = a;
+			a = d;
+			d = temp;
+		}
+		if(b>c) {
+			temp = b;
+			b = c;
+			c = temp;
+		}
+		if(b>d) {
+			temp = b;
+			b = d;
+			d = temp;
+		}
+		if(c>d) {
+			temp = c;
+			c = d;
+			d = temp;
+		}[=04]
+
+		System.out.println(a+" "+b+" "+c+" "+d);
+	
+		}
+}

@@ -1,0 +1,10 @@
+package com.gao;
+
+import javafx.scene.input.DataFormat;
+
+public class Test {
+	public static void main(String[] args) {
+		DataFormat df = new DataFormat("yyyy-MM-dd hh:mm:ss");
+		System.out.println(df);
+	}
+}

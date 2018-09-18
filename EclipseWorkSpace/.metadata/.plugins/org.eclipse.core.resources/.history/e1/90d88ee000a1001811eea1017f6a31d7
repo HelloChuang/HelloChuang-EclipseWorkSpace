@@ -1,0 +1,23 @@
+package com.gao;
+
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		show();
+	}
+	public static void show() {
+		Person[] persons = new Person[3];
+		persons[0] = new Person(45,"ÕÅ°ØÖ¥");
+		persons[1] = new Person(43,"Ð»öª·æ");
+		persons[2] = new Person(47,"Íõ·Æ");
+		for (Person person : persons) {
+			System.out.println(person);
+		}
+		System.out.println("===================");
+		Arrays.sort(persons);
+		for (Person person : persons) {
+			System.out.println(persons);
+		}
+	}
+}

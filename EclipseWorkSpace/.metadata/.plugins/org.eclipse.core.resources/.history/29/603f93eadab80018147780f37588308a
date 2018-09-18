@@ -1,0 +1,14 @@
+package com.gao.test;
+
+public class Test5 {
+	public static void main(String[] args) {
+		add();
+	}
+	public static void add(){
+		System.out.println("s");
+		System.out.println("s");
+		System.out.println("s");
+		System.out.println("s");
+		
+	}
+}

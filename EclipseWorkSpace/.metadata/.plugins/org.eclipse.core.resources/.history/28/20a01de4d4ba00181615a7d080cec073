@@ -1,0 +1,37 @@
+package com.gao.test;
+
+public class Test15 {
+	public static void main(String[] args) {
+		
+		System.out.println(recursion(3));
+		int[] arr = {5,6,3,2,55,43,43,9};
+		selectSortHigh(arr);
+		print(arr);
+	}
+	public static int recursion(int x){
+		if(x==1)return 1;
+		return x+recursion(x-1);
+	}
+	public static void selectSortHigh(int[] arr){
+		int temp = 0;
+		for (int i = 0; i < arr.length-1; i++) {
+			int minIndex = i;
+			for (int j = i+1; j < arr.length; j++) {
+				if(arr[minIndex]>arr[j]){
+					minIndex = j;
+				}
+			}
+			if(minIndex!=i){
+				temp = arr[i];
+				arr[i] = arr[minIndex];
+				arr[minIndex] = temp;
+			}
+		}
+	}
+	public static void print(int [] arr){
+		for (int i : arr) {
+			System.out.print(i);
+		}
+		System.out.println();
+	}
+}

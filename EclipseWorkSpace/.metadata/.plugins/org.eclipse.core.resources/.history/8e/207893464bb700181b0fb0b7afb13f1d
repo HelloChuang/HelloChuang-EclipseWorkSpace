@@ -1,0 +1,30 @@
+package com.gao.chapter.one;
+
+public class PrintX {
+	public static void main(String[] args) {
+		System.out.print("");
+		System.out.print("*");
+		System.out.print("12345");
+		System.out.print("*");
+		System.out.println();
+		
+		System.out.print("1");
+		System.out.print("*");
+		System.out.print("234");
+		System.out.print("*");
+		System.out.println();
+		
+		System.out.print("12");
+		System.out.print("*");
+		System.out.print("34");
+		System.out.print("*");
+		System.out.println();
+		
+		System.out.print("123");
+		System.out.print("*");
+		System.out.print("4");
+		System.out.print("*");
+		System.out.println();
+		
+	}
+}

@@ -1,0 +1,42 @@
+package com.gao;
+
+public class PopSort {
+	public static void main(String[] args) {
+		int [] arr = new int [10];
+		randomArr(arr);
+		popSortLow(arr);
+		print(arr);
+	}
+	
+	public static void popSortLow(int [] arr){
+		int temp = 0;
+		for (int i = 0; i < arr.length-1; i++) {
+			for (int j = 1; j < arr.length-1-i; j++) {
+				if(arr[i]>arr[j]){
+					temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	public static void randomArr(int [] arr){
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = (int)(Math.random()*100)+1;
+		}
+	}
+	public static void print(int [] arr){
+		for (int i : arr) {
+			System.out.print(i+" ");
+		}
+		System.out.println();
+		System.out.println();
+	
+	}
+	
+}

@@ -1,0 +1,12 @@
+package com.gao;
+
+public class QSort {
+	public static void main(String[] args) {
+		
+		int i = 32768;
+		short s = (short)i;
+		System.out.println(s);
+		
+	}
+	
+}

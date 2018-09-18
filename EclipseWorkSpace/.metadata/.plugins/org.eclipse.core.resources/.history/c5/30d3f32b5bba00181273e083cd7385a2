@@ -1,0 +1,22 @@
+package com.gao;
+
+public class BinarySerch {
+	public static void main(String[] args) {
+		int [] arr = {1,2,3,4,5};
+	}
+	public static int binarySerch(int[] arr,int x){
+		int low = 0;
+		int high = arr.length-1;
+		int midIndex = (low+high) >> 1;
+		int mid = arr[midIndex];
+		
+		
+		while(){
+			if(x > arr[mid]){
+				midIndex = (arr.length - midIndex )>>1;
+			}
+			
+		}
+		return -1;
+	}
+}

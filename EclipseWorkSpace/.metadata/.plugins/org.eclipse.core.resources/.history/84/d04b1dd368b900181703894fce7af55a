@@ -1,0 +1,26 @@
+package com.gao.test;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Test10 {
+	public static void main(String[] args) {
+		String s  =  "Hello world";
+		int count = lengthOfLastWord(s);
+		System.out.println(count);
+		
+	}
+	 public static int lengthOfLastWord(String s) {
+	        int count = 0;
+
+	        char[] c = s.toCharArray();
+	        for (int i = c.length-1; i >=0; i--) {
+				if(c[i] == ' ')break;
+				count++;
+			}
+	      
+	        
+	        return count;
+	    }
+}

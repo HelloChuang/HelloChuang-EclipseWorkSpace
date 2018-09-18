@@ -1,0 +1,7 @@
+package com.gao.chapter.one;
+
+public class PrintX {
+	public static void main(String[] args) {
+		System.out.println("s");
+	}
+}

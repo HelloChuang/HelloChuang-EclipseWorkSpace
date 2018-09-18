@@ -1,0 +1,47 @@
+package com.gao.test;
+
+import java.util.Scanner;
+
+public class test {
+	public static void main(String[] args) {
+//		char c = 'Û¬';
+//		char d = '´´';
+//		char e = 'ÐÂ';
+//		System.out.println(c+0);
+//		System.out.println(d+0);
+//		System.out.println(e+0);
+//		
+//		int a = 32768;
+//		short b = (short)a;
+//		
+//		System.out.println(b);
+		
+//		int i = sc.nextInt();
+//		int j = sc.nextInt();
+		Scanner sc = new Scanner(System.in);
+		int x = sc.nextInt();
+		int y = sc.nextInt();
+		int z = sc.nextInt();
+		int maxVal = 0;
+		int midVal = 0;
+		int minVal = 0;
+		
+		minVal = x<y?x:y;
+		minVal = minVal<z?minVal:z;
+		
+	
+		maxVal = x<y?y:x;
+		maxVal = maxVal<z?z:maxVal;
+		
+		midVal = x + y + z - maxVal - minVal;
+
+		
+		
+		System.out.println(minVal + " " + midVal + " " + maxVal);
+		
+		
+		
+	
+		
+}
+}

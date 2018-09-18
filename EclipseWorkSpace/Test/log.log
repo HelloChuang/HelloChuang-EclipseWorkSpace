@@ -1,0 +1,5 @@
+18/09/12 19:21:40 INFO com.gao.test.test2 Æô¶¯£¡ com.gao.test.test2.main(test2.java:10) 
+18/09/12 19:21:40 DEBUG com.gao.test.test2 ss com.gao.test.test2.main(test2.java:11) 
+18/09/12 19:21:40 WARN com.gao.test.test2 ss com.gao.test.test2.main(test2.java:12) 
+18/09/12 19:21:40 ERROR com.gao.test.test2 ss com.gao.test.test2.main(test2.java:13) 
+18/09/12 19:21:40 FATAL com.gao.test.test2 Ê§°Ü£¡ com.gao.test.test2.main(test2.java:14) 

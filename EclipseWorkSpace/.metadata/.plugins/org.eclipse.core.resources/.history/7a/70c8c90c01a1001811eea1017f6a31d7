@@ -1,0 +1,26 @@
+package com.gao;
+
+import java.util.Arrays;
+
+public class Test {
+	public static void main(String[] args) {
+		Person person = new Person(45,"ÕÅ°ØÖ¥");
+		Person person2 = new Person(43,"Ğ»öª·æ");
+		int compareTo = person.compareTo(person2);
+		show();
+	}
+	public static void show() {
+		Person[] persons = new Person[3];
+		persons[0] = new Person(45,"ÕÅ°ØÖ¥");
+		persons[1] = new Person(43,"Ğ»öª·æ");
+		persons[2] = new Person(47,"Íõ·Æ");
+		for (Person person : persons) {
+			System.out.println(person);
+		}
+		System.out.println("===================");
+		Arrays.sort(persons);
+		for (Person person : persons) {
+			System.out.println(persons);
+		}
+	}
+}

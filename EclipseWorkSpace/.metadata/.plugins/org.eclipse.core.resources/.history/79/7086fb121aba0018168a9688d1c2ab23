@@ -1,0 +1,15 @@
+package com.gao.test;
+
+public class Test11 {
+	public static void main(String[] args) {
+		showPrint(9);
+	}
+	public static void showPrint(int x){
+		for (int i = 1; i <= x+1; i++) {
+			for (int j = i+1; j <= x+1; j++) {
+				System.out.print(i+"×"+j+"=="+i*j+"	");
+			}
+			System.out.println();
+		}
+	}
+}

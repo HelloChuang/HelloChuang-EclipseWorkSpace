@@ -1,0 +1,42 @@
+package com.gao;
+
+/**
+ * 插入排序
+ * ①首先记录下要插别人的，并把它从数组中取出来
+ * ②一直往前找，并将比自己大的数后移
+ * ③当找到比自己小的数的时候，记录下其下标
+ * ④将一开始取出的数放在这里
+ * @author Gaoch
+ *
+ */
+public class InsertSort {
+	public static void main(String[] args) {
+		
+		int[] arr = {0,3,1};
+		insertSort(arr);
+		print(arr);
+	}
+	
+	public static void insertSort(int[] arr) {
+		int minVal = 0;
+		int tempIndex = 0;
+		int minIndex = 0;
+		System.out.println(5555);
+		for(int i = 1;i<arr.length;i++){
+			minVal = arr[i];
+			tempIndex = i-1;
+			while(tempIndex>=0&&arr[tempIndex]<minVal) {
+				arr[tempIndex+1] = arr[tempIndex];
+				//minIndex = tempIndex;
+				tempIndex--;
+			}
+			//arr[minIndex] = minVal;
+			arr[tempIndex+1] = minVal;
+		} 	
+	}
+	public static void print(int[] arr) {
+		for (int i : arr) {
+			System.out.println(i);
+		}
+	}
+}

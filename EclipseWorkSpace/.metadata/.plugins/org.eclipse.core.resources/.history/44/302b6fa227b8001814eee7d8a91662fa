@@ -1,0 +1,15 @@
+package com.gao.chapter.one;
+
+/**
+ * 4.给20块钱买可乐，每瓶可乐3块钱，喝完之后退瓶子可以换回1块钱，问最多可以喝到多少瓶可乐。
+ * @author XX
+ *
+ */
+public class Cola {
+	public static void main(String[] args) {
+		int 
+		for(int) {
+			
+		}
+	}
+}

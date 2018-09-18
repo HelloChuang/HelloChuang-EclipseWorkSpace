@@ -1,0 +1,23 @@
+package com.gao.test;
+
+public class Test8 {
+	public static void main(String[] args) {
+		int[] a={5,4};
+		
+		int[] b;
+		b = new int[5];
+		
+		int[] c = new int[5];
+		
+		int[] d ;
+		d= new int[]{};
+		
+		int[] e = new int[]{};
+		
+		
+		
+		System.out.println(a);
+		
+		
+	}
+}

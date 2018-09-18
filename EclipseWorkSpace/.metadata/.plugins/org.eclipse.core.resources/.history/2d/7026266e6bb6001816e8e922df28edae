@@ -1,0 +1,12 @@
+package com.gao.test;
+
+public class test3 {
+	public static void main(String[] args) {
+		double x = m((byte)1,(double)2.0);
+	}
+	
+	static double m(byte x,double y) {
+		
+		return (short)x/y*2;
+	}
+}

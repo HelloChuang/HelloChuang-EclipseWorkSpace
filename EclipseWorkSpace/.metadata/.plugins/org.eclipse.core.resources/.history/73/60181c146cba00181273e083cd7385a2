@@ -1,0 +1,12 @@
+package com.gao.test;
+
+public class Test12 {
+	public static void main(String[] args) {
+		
+		System.out.println(diGui(3));
+	}
+	public static int diGui(int x){
+		if(x==1)return 1;
+		return x + diGui(x-1);
+	}
+}

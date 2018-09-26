@@ -1,0 +1,19 @@
+package com.gao;
+
+public class Test {
+	public static void main(String[] args) {
+		MusicalInstrument m1 = new Piano();
+		MusicalInstrument m2 = new Violin();
+		MusicalInstrument m3 = new Erhu();
+		
+		BandsMan b = new BandsMan();
+		b.PlayAMusicalInstrument(m1);
+		b.PlayAMusicalInstrument(m2);
+		b.PlayAMusicalInstrument(m3);
+	}
+}
+class BandsMan{
+	public void PlayAMusicalInstrument(MusicalInstrument m){
+		m.sound();
+	}
+}

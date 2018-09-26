@@ -1,15 +1,15 @@
 package com.gao;
 /**
- * ²åÈëÅÅÐò
- * ¢ÙÊ×ÏÈ¼ÇÂ¼ÏÂÒª²å±ðÈËµÄ£¬²¢°ÑËü´ÓÊý×éÖÐÈ¡³öÀ´
- * ¢ÚÒ»Ö±ÍùÇ°ÕÒ£¬²¢½«±È×Ô¼º´óµÄÊýºóÒÆ
- * ¢Ûµ±ÕÒµ½±È×Ô¼ºÐ¡µÄÊýµÄÊ±ºò£¬¼ÇÂ¼ÏÂÆäÏÂ±ê
- * ¢Ü½«Ò»¿ªÊ¼È¡³öµÄÊý·ÅÔÚÕâÀï
- * Ñ¡ÔñÅÅÐòºÍÃ°ÅÝÅÅÐòÊÇ×îÂýµÄÅÅÐòËã·¨£¬Êµ¼ÊÔËÓÃÖÐÐ§ÂÊ×îµÍ£¬µ±ÊýÁÐÎªÓÉÐ¡µ½´óµÄÓÐÐòÊýÁÐÊ±Îª×îºÃÇé¿ö£¬µ±ÓÉ´óµ½Ð¡Ê±ÎªÎª×î»µÇé¿ö¡£
+ * æ’å…¥æŽ’åº
+ * â‘ é¦–å…ˆè®°å½•ä¸‹è¦æ’åˆ«äººçš„ï¼Œå¹¶æŠŠå®ƒä»Žæ•°ç»„ä¸­å–å‡ºæ¥
+ * â‘¡ä¸€ç›´å¾€å‰æ‰¾ï¼Œå¹¶å°†æ¯”è‡ªå·±å¤§çš„æ•°åŽç§»
+ * â‘¢å½“æ‰¾åˆ°æ¯”è‡ªå·±å°çš„æ•°çš„æ—¶å€™ï¼Œè®°å½•ä¸‹å…¶ä¸‹æ ‡
+ * â‘£å°†ä¸€å¼€å§‹å–å‡ºçš„æ•°æ”¾åœ¨è¿™é‡Œ
+ * é€‰æ‹©æŽ’åºå’Œå†’æ³¡æŽ’åºæ˜¯æœ€æ…¢çš„æŽ’åºç®—æ³•ï¼Œå®žé™…è¿ç”¨ä¸­æ•ˆçŽ‡æœ€ä½Žï¼Œå½“æ•°åˆ—ä¸ºç”±å°åˆ°å¤§çš„æœ‰åºæ•°åˆ—æ—¶ä¸ºæœ€å¥½æƒ…å†µï¼Œå½“ç”±å¤§åˆ°å°æ—¶ä¸ºä¸ºæœ€åæƒ…å†µã€‚
  * ========================================================================================
- * 	                 	Ê±¼ä¸´ÔÓ¶È						¿Õ¼ä¸´ÔÓ¶È		ÎÈ¶¨ÐÔ		¸´ÔÓÐÔ
- *    ×îºÃ                                      Æ½¾ù                                               ×î»µ		¸¨Öú´æ´¢
-	O(N)              O(N2)              O(N2)       O(1)        ÎÈ¶¨			¼òµ¥
+ * 	                 	æ—¶é—´å¤æ‚åº¦						ç©ºé—´å¤æ‚åº¦		ç¨³å®šæ€§		å¤æ‚æ€§
+ *    æœ€å¥½                                      å¹³å‡                                               æœ€å		è¾…åŠ©å­˜å‚¨
+	O(N)              O(N2)              O(N2)       O(1)        ç¨³å®š			ç®€å•
 
  ===========================================================================================
  * @author Gaoch
@@ -27,17 +27,15 @@ public class InsertSort {
 		int minVal = 0;
 		int tempIndex = 0;
 		int minIndex = 0;
-		System.out.println(5555);
+	
 		for(int i = 1;i<arr.length;i++){
 			minVal = arr[i];
 			tempIndex = i-1;
 			while(tempIndex>=0&&arr[tempIndex]>minVal) {
 				arr[tempIndex+1] = arr[tempIndex];
-				//minIndex = tempIndex;
-				tempIndex--;//ÐÞÕý
+				tempIndex--;
 			}
-			//arr[minIndex] = minVal;
-			arr[tempIndex+1] = minVal;//ÐÞÕý
+			arr[tempIndex+1] = minVal;
 		} 	
 	}
 	public static void print(int[] arr) {

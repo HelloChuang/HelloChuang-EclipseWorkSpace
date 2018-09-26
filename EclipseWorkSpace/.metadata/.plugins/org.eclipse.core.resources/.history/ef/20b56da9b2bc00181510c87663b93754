@@ -1,0 +1,7 @@
+package com.gao;
+
+public class Erhu extends MusicalInstrument{
+	private void sound(){
+		System.out.println("二胡的声音");
+	}
+}

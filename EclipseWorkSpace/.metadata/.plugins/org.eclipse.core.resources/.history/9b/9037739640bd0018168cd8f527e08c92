@@ -1,0 +1,144 @@
+package com.gao.test3;
+
+public class Test {
+	public static void main(String[] args) {
+		Person p1 = new Student("郜创新");
+		Person p2 = new Teacher();
+		
+		sayHello(p1);
+		sayHello(p2);
+	}
+	public static void sayHello(Person p){
+		p.selfIntroduction();
+	}
+}
+class Person{
+	private String name;
+	private int age;
+	private boolean sex;
+	
+
+	public Person() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Person(String name, int age, boolean sex) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + ", sex=" + sex + "]";
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public int getAge() {
+		return age;
+	}
+
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+
+	public boolean isSex() {
+		return sex;
+	}
+
+
+	public void setSex(boolean sex) {
+		this.sex = sex;
+	}
+
+
+	public void selfIntroduction(){}
+}
+class Student extends Person{
+	private String className;
+	private	final int id;
+	static int count = 2018001;
+	public Student() {
+		super();
+		id = count ++;
+	}
+	public Student(String className) {
+		super();
+		this.className = className;
+		this.id = count++;
+	}
+
+
+	public void selfIntroduction(){
+		System.out.println("大家好我是学生："+this.className+"学号：" + this.id);
+	}
+	
+	
+	public String getClassName() {
+		return className;
+	}
+
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+
+
+	public static int getCount() {
+		return count;
+	}
+
+
+	public static void setCount(int count) {
+		Student.count = count;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+	@Override
+	public String toString() {
+		return "Student [className=" + className + ", id=" + id + "]";
+	}
+
+
+	
+}
+class Teacher extends Person{
+	
+	@Override
+	public String toString() {
+		return "Teacher []";
+	}
+
+	public Teacher() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Teacher(String name, int age, boolean sex) {
+		super(name, age, sex);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void selfIntroduction(){
+		System.out.println("大家好我是老师");
+	}
+}

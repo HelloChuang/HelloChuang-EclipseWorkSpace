@@ -1,0 +1,33 @@
+package com.gao.test2;
+
+public class StaticBand {
+	public static void main(String[] args) {
+		Father f = new Son();
+		System.out.println(f.getAge());
+	}
+}
+class Father{
+	private int age = 1;
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+}
+
+class Son extends Father{
+	private int age = 2;
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+}

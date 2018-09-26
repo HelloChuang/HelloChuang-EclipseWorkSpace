@@ -1,0 +1,8 @@
+package com.gao;
+
+public class Piano {
+	
+private void sound(){
+		System.out.println("钢琴的声音");
+	}
+}

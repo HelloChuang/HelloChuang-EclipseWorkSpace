@@ -1,0 +1,21 @@
+package com.gao.test;
+
+public class Test18 {
+	public static void main(String[] args) {
+		Student2 student = new Student2();
+		
+	}
+}
+
+class Student2{
+	private long id;
+	static long count = 20157730100L;
+	{
+		id = count++;
+	}
+	public Student2() {
+		super();
+		System.out.println((long)this.id);
+	}
+	
+}

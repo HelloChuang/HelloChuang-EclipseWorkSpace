@@ -1,0 +1,21 @@
+package com.gao.test2;
+
+public class StaticBand {
+	public static void main(String[] args) {
+		Father f = new Son();
+		System.out.println(f.age);
+	}
+}
+class Father{
+	public int age = 1;
+
+	
+	
+}
+
+class Son extends Father{
+	public int age = 2;
+
+	
+	
+}

@@ -1,0 +1,173 @@
+package com.gao.test3;
+
+/**
+ * 测试 :    在同一个文件中完成  类均定义在一个java 文件总    测试类为 公开类 
+1. 封装 Person 类 , 有 name  age  sex  属性 , 有 吃饭 睡觉 能力  有自我介绍方法
+
+2. 封装 Student 类  , 是 Person 子类 , 有 className 属性 , 有 id 属性 ， id 为自动分配 , 一旦确定不能更改   ， 重写自我介绍方法
+
+3. 封装 Teacher 类 , 是 Person 子类    重写自我介绍方法
+
+4. 编写测试类  ,   定义一个可以让 Person Teacher Student 自我介绍的方法  使用多态实现
+
+5. 简述 static 作用 
+static可以修饰属性，类，方法，表示静态的
+被static修饰的，会在程序一开始执行，且整个运行过程只会执行一次，依附于类，不依附于对象，会在内存中一直存在，直到程序结束
+
+6. 简述 final 作用
+可以修饰属性，类，方法，表示不可被修改的，常用来定义常量
+final修饰属性：一经赋值，永不可修改
+final修饰方法：不可以被重写
+final修饰类：不可以被继承
+7. 谈谈你对 组合 的理解    
+在类中可以调用别的类的对象并当作自己的属性或方法
+可以改善代码长度
+编程方便
+管理方便
+ * @author XX
+ *
+ */
+public class Test {
+	public static void main(String[] args) {
+		Person p1 = new Student("郜创新");
+		Person p3 = new Student("郜创");
+		Person p2 = new Teacher();
+		
+		sayHello(p1);
+		sayHello(p3);
+		sayHello(p2);
+	}
+	public static void sayHello(Person p){
+		p.selfIntroduction();
+	}
+}
+class Person{
+	private String name;
+	private int age;
+	private boolean sex;
+	
+
+	public Person() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Person(String name, int age, boolean sex) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + ", sex=" + sex + "]";
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public int getAge() {
+		return age;
+	}
+
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+
+	public boolean isSex() {
+		return sex;
+	}
+
+
+	public void setSex(boolean sex) {
+		this.sex = sex;
+	}
+
+
+	public void selfIntroduction(){}
+}
+class Student extends Person{
+	private String className;
+	private	final int id;
+	static int count = 2018001;
+	public Student() {
+		super();
+		id = count ++;
+	}
+	public Student(String className) {
+		super();
+		this.className = className;
+		this.id = count++;
+	}
+
+
+	public void selfIntroduction(){
+		System.out.println("大家好我是学生："+this.className+" "+"学号：" + this.id);
+	}
+	
+	
+	public String getClassName() {
+		return className;
+	}
+
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+
+
+	public static int getCount() {
+		return count;
+	}
+
+
+	public static void setCount(int count) {
+		Student.count = count;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+	@Override
+	public String toString() {
+		return "Student [className=" + className + ", id=" + id + "]";
+	}
+
+
+	
+}
+class Teacher extends Person{
+	
+	@Override
+	public String toString() {
+		return "Teacher []";
+	}
+
+	public Teacher() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Teacher(String name, int age, boolean sex) {
+		super(name, age, sex);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void selfIntroduction(){
+		System.out.println("大家好我是老师");
+	}
+}

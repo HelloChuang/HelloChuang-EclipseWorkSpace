@@ -21,7 +21,7 @@ package com.gao.test;
 
 6. 自行实现选择排序(基础版 || 升级版)  代码实现
  */
-public class Test11 {
+public class 郜创新 {
 	public static void main(String[] args) {
 		showPrint(9);
 		int [] arr = {5,6,1,3,8,4,6};

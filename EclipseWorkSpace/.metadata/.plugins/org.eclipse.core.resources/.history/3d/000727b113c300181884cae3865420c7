@@ -1,0 +1,13 @@
+package com.gao.test2;
+
+import java.io.File;
+
+public class Test07 {	
+	public static void main(String[] args) {
+		File file = new File("C:\\Users\\XX\\Desktop\\Hello");
+		String[] list = file.list();
+		for (String string : list) {
+			System.out.println(string);
+		}
+	}
+}

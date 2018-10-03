@@ -1,0 +1,41 @@
+package com.gao.first;
+
+public class Code_03_QuikSort {
+	public static void quickSort(int[] arr) {
+		if (arr == null || arr.length < 2) {
+			return;
+		}
+		quickSort(arr, 0, arr.length - 1);
+	}
+
+	public static void quickSort(int[] arr, int l, int r) {     
+		if (l < r) {
+			swap(arr, l + (int) (Math.random() * (r - l + 1)), r);   //随机快排，随机选择一个与末尾元素交换
+			int[] p = partition(arr, l, r);							//划分过程
+			quickSort(arr, l, p[0] - 1);							// p[0] - 1为等于区域左边的第一个元素
+			quickSort(arr, p[1] + 1, r);							//p[1] + 1为等于区域右边的第一个元素
+		}
+	}
+
+	public static int[] partition(int[] arr, int l, int r) { //划分，分为左区域和右区域和中间区域
+		int less = l - 1;  	//左区域，l为待排序的第一个值
+		int more = r;		//右区域，r为标记值
+		while (l < more) { //当l++，与--more会合时，停止循环
+			if (arr[l] < arr[r]) {		//如果小于标记值
+				swap(arr, ++less, l++);	//就让左区域右边第一个元素与其交换，左区域向右扩张一位，待排序元素向右移一位
+			} else if (arr[l] > arr[r]) { //如果大于标记值
+				swap(arr, --more, l);		//就让右区域左边的第一个元素与其交换，右区域向左扩张一位，待排序元素向右移一位
+			} else {						//如果等于标记值
+				l++;						//不作任何操作，只是让待排序元素向右移一位，也就是把等于标记值的留在中间
+			}
+		}
+		swap(arr, more, r);					//此时的more位置肯定是大于标记值的元素，让其与标记值进行交换，此时标记值会与等于区域融汇
+		return new int[] { less + 1, more };	//记录下等于区域的位置
+	}
+
+	public static void swap(int[] arr, int i, int j) {
+		int tmp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = tmp;
+	}
+}

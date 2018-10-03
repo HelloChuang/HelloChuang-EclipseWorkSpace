@@ -1,0 +1,18 @@
+package com.gao.test2;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Test016 {
+	public static void main(String[] args) throws ParseException {
+		
+		StringBuffer sbf = new StringBuffer("java");
+		StringBuffer sbf1 = sbf.append(",C#");
+		String sbf2 = sbf + ",C#";
+		System.out.print(sbf.equals(sbf1));
+		System.out.println(sbf2.equals(sbf));
+}
+}

@@ -1,0 +1,10 @@
+package com.gao.test2;
+
+import java.util.LinkedList;
+@SuppressWarnings("all")
+public class Test13 {
+	public static void main(String[] args) {
+		LinkedList linkedList = new LinkedList();
+		
+	}
+}

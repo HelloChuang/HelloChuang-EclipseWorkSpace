@@ -1,0 +1,40 @@
+package com.gao.test2;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Test07 {	
+	public static void main(String[] args) {
+		File file = new File("C:\\Users\\XX\\Desktop\\Hello");//目录
+		File[] listFiles = file.listFiles(); //与file.list返回字符串不同，file.listFiles获得的是File对象列表
+		int fileCount = 0; //记录文件个数
+		int dirCount = 0;  //记录目录个数
+		long usableSpace = 0;  //记录该目录剩余空间大小
+		for (File f : listFiles) {
+			long lastModified = f.lastModified();
+			Date date = new Date(lastModified);
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			String format = sdf.format(date);
+			System.out.printf("%-25s",format);
+			
+			System.out.printf("%-15s",f.getName());
+			
+			String s = "";
+			if(f.isDirectory()){
+				s = "<Dir>";
+				dirCount++;
+			}else 
+				{
+				fileCount++;
+				}
+			System.out.printf("%-10s",s);
+			System.out.printf("%-10s",f.length());
+
+			System.out.printf("%-28s",f.getParent());
+			System.out.println();
+			usableSpace = f.getUsableSpace();
+		}
+		System.out.printf("\n\n%30s",fileCount+"个文件" + " " +dirCount+"个目录"+"  剩余空间大小："+ usableSpace);
+	}
+}

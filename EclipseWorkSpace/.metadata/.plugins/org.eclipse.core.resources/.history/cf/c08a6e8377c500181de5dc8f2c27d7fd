@@ -1,0 +1,9 @@
+package com.gao.test2;
+
+public class Test016 {
+	public static void main(String[] args) {
+		String s = "1";
+		s.concat("sss");
+		System.out.println(s.length());
+	}
+}

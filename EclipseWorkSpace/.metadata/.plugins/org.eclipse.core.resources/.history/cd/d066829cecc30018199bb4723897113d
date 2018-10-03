@@ -1,0 +1,57 @@
+package com.gao.test2;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+@SuppressWarnings("all")
+public class Test14 {
+	public static void main(String[] args) {
+		Map map = new HashMap();
+		Map map2 = new HashMap();
+		
+		map.put("January", "一月");
+		map.put("February", "二月");
+		map.put("March", "三月");
+		map2.putAll(map);
+		map.get("March");
+		map.isEmpty();
+		map.size();
+		map.containsKey("February");
+		map.containsValue("一月");
+		map.remove("January");
+		
+		Set keySet = map.keySet();
+		Iterator it = keySet.iterator();
+		while(it.hasNext()){
+			Object key = it.next();
+			Object value = map.get(key);
+			System.out.println(key+" = "+value);
+		}
+//		
+//		Set entrySet = map.entrySet();
+//		Iterator it2 = entrySet.iterator();
+//		while(it2.hasNext()){
+//			Map.Entry entry = (Entry)it.next();
+//			Object key = entry.getKey();
+//			Object value = entry.getValue();
+//			System.out.println(key + " = "+value);
+//		}
+		
+		Set keySet2 = map.keySet();
+		Collection values = map.values();
+		Iterator it3 = keySet2.iterator();
+		Iterator it4 = values.iterator();
+		while(it3.hasNext()){
+			System.out.println(it3.next()+" = "+it4.next());
+		}
+		
+		
+		
+		
+		map.clear();
+	
+	}
+}

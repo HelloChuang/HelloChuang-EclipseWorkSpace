@@ -1,0 +1,30 @@
+package com.gao.test2;
+
+import java.util.HashMap;
+import java.util.Map;
+@SuppressWarnings("all")
+public class Test14 {
+	public static void main(String[] args) {
+		Map map = new HashMap();
+		Map map2 = new HashMap();
+		
+		map.put("January", "一月");
+		map.put("February", "二月");
+		map.put("March", "三月");
+		map2.putAll(map);
+		map.get("March");
+		map.isEmpty();
+		map.size();
+		map.containsKey("February");
+		map.containsValue("一月");
+		//map.remove("January");
+		
+		System.out.println(map);
+		System.out.println(map.containsValue("一月"));
+		
+		
+		
+		map.clear();
+	
+	}
+}

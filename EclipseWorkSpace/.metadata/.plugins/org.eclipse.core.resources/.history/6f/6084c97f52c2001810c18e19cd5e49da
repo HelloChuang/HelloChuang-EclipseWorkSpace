@@ -1,0 +1,20 @@
+package com.gao.test2;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Date;
+
+public class Test06 {
+	public static void main(String[] args) throws ParseException {
+		//1. 输出 date 时 西方国家的时间风格
+		Date date = new Date();
+		String s = DateFormat.getDateTimeInstance().format(date);
+		System.out.println(s);
+		//2.难以计算毫秒 来获得指定时间的 Date 对象
+		String s2 = "1996-3-28 7:0:0";
+		Date parse = DateFormat.getDateTimeInstance().parse(s2);
+		System.out.println(parse);
+		
+				
+	}
+}

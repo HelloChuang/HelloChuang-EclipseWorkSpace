@@ -1,6 +1,7 @@
 package com.gao.test;
 
 public class OuterClass2 {
+	InnerClass inn = new InnerClass();
 	public static void main(String[] args) {
 		//非静态内部类
 		InnerClass inn = new OuterClass2().new InnerClass();
@@ -28,6 +29,7 @@ public class OuterClass2 {
 		private int age;
 		public static int id;
 	}
+	
 }
 abstract class Abst{
 	public abstract void show();

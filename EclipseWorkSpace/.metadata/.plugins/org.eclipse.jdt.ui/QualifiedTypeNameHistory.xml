@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.gao.GameUtil"/>
-<fullyQualifiedTypeName name="com.sun.prism.Graphics"/>
-<fullyQualifiedTypeName name="java.awt.Image"/>
-<fullyQualifiedTypeName name="com.sun.javafx.geom.Rectangle"/>
-<fullyQualifiedTypeName name="java.awt.Rectangle"/>
-<fullyQualifiedTypeName name="java.awt.event.KeyAdapter"/>
-<fullyQualifiedTypeName name="com.gao.PlaneGame.KeyMonitor"/>
-<fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
-<fullyQualifiedTypeName name="com.gao.Constant"/>
-<fullyQualifiedTypeName name="java.awt.Frame"/>
-<fullyQualifiedTypeName name="java.awt.Graphics"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
 <fullyQualifiedTypeName name="com.gao.IGameFrame"/>
 <fullyQualifiedTypeName name="com.gao.PaintFrame"/>
@@ -27,7 +15,6 @@
 <fullyQualifiedTypeName name="com.gao.AnnoTable"/>
 <fullyQualifiedTypeName name="com.gao.AnnoField"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
-<fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Constructor"/>
 <fullyQualifiedTypeName name="java.lang.Class"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
@@ -41,23 +28,36 @@
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="com.gao.test.Student"/>
 <fullyQualifiedTypeName name="com.gao.test.Student1"/>
 <fullyQualifiedTypeName name="com.gao.MusicalInstrument"/>
 <fullyQualifiedTypeName name="com.gao.test.OuterClass.InnerClass2"/>
 <fullyQualifiedTypeName name="com.gao.test.OuterClass"/>
-<fullyQualifiedTypeName name="com.gao.test.OuterClass2.InnerClass"/>
 <fullyQualifiedTypeName name="com.gao.test.OuterClass2.StaticInnerClass"/>
 <fullyQualifiedTypeName name="com.gao.test.OuterClass2"/>
 <fullyQualifiedTypeName name="com.gao.test.Abst"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="com.gao.test2.MyString"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="com.gao.test.OuterClass2.InnerClass"/>
+<fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+<fullyQualifiedTypeName name="java.lang.CharSequence"/>
+<fullyQualifiedTypeName name="com.gao.test2.Interface01"/>
+<fullyQualifiedTypeName name="com.gao.test2.Interface02"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
+<fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="java.lang.Package"/>
+<fullyQualifiedTypeName name="com.gao.test3.Athlete"/>
 </qualifiedTypeNameHistroy>

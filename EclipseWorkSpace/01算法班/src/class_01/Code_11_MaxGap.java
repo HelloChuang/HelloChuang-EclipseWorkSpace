@@ -1,0 +1,61 @@
+package class_01;
+
+/**
+ * @author XX
+ *给定一个数组，求如果排序之后，相邻两数的最大差值，要求时间复杂度O(N)，要求不能用基于比较的排序
+ *等分成等范围的，中间必有一个空桶，   空桶的意义?
+在排序之后，相邻两数可能来自同一个桶，也可能来自不同的桶
+设置空桶的目的：想否定最大差值一定不来自相同桶的数，空桶左边一定存在一个离它最近的不空的桶，
+空桶的右边也一定可以找到不空的桶，它左边非空桶中收集的数的最大值，和它右边非空桶中收集到的最小值在排序之后一定是相邻的，
+最小和最大的差值一定会大于桶所表示的范围，所以我们不用去管来自一个桶内部相邻数的差值，一定不是我们要的答案，最大差值只会来自，
+两个数分别来自不同桶产生的最大差值，后一个桶的最小值，和前一个桶的最大值之间的
+
+流程：只记录每个桶的最大值和最小值
+boolean用来记录桶里面进没进来过数
+从第二个桶看，如果是空的跳下一个桶，如果是非空的，找前一个非空桶的最大值，和自己这个桶的最小值，
+算一下差值，每一个非空桶都找离它左边最近桶的最大值和它当前桶的最小值，记录下差值，答案一定是这里面最大的
+设置空桶的分析方式：否定来自一个桶内部的可能性，可没说答案一定是空桶两侧来自非空桶的情况
+空桶杀死的是可能性
+ */
+public class Code_11_MaxGap {    
+	public static int maxGap(int[] nums) {
+		if (nums == null || nums.length < 2) { //空或者就一个数就不比了
+			return 0;
+		}
+		int len = nums.length;        //桶的
+		int min = Integer.MAX_VALUE;
+		int max = Integer.MIN_VALUE;
+		for (int i = 0; i < len; i++) {		//求出整个数组中的最大值和最小值
+			min = Math.min(min, nums[i]);	
+			max = Math.max(max, nums[i]);
+		}
+		if (min == max) {	//说明里面的数都一样   差值为0  就不必往下进行了
+			return 0;
+		}
+		boolean[] hasNum = new boolean[len + 1]; //用来记录每个桶中是否进来过数
+		int[] maxs = new int[len + 1];   		//记录每个桶中的最大值
+		int[] mins = new int[len + 1];			//记录每个桶中的最小值
+		int bid = 0;
+		for (int i = 0; i < len; i++) {			//bucket用来确定当前数属于几号桶
+			bid = bucket(nums[i], len, min, max); 
+			mins[bid] = hasNum[bid] ? Math.min(mins[bid], nums[i]) : nums[i];//该桶的最小值和最大值都要进行更新
+			maxs[bid] = hasNum[bid] ? Math.max(maxs[bid], nums[i]) : nums[i];
+			hasNum[bid] = true;  //说明这个桶就有数了
+		}
+		int res = 0;
+		int lastMax = maxs[0];
+		int i = 1;
+		for (; i <= len; i++) {	//找到每一个非空桶和离它最近的左边非空的桶，用当前的最小减前一个的最大
+			if (hasNum[i]) {
+				res = Math.max(res, mins[i] - lastMax);		//差值
+				lastMax = maxs[i];
+			}
+		}
+		return res;
+	}
+
+	public static int bucket(long num, long len, long min, long max) {//当我确定一组数的最小值最大值以及一共又多少个数，怎么定位一个数应该去几号桶
+		return (int) ((num - min) * len / (max - min));
+	}
+
+}

@@ -1,0 +1,25 @@
+package com.gao.test2;
+
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Test016 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("年龄：");
+		Integer age = sc.nextInt();
+		System.out.println("分数：");
+		Double  score = sc.nextDouble();
+		System.out.println("入学时间：");
+		String timeOfEnrollment = sc.next();
+	
+		String format = DateFormat.getDateInstance().format(timeOfEnrollment);
+		System.out.println("年龄："+age+"\n分数："+score+"\n入学时间："+format);
+		
+		
+	}
+	public static void change(){
+		
+	}
+}

@@ -1,0 +1,56 @@
+package class_01;
+
+public class Code_03_HeapSort {
+	public static void main(String[] args) {
+		int [] arr = {8,6,9,4,5,1,5};
+		heapSort(arr);
+		print(arr);
+	}
+	public static void heapSort(int[] arr) {
+		if (arr == null || arr.length < 2) {
+			return;
+		}
+		for (int i = 0; i < arr.length; i++) {//构造大根堆
+			heapInsert(arr, i);
+		}
+		int size = arr.length;	
+		swap(arr, 0, --size);	//将堆顶的元素与堆底的元素交换      --size：从末尾开始有序的过程
+		while (size > 0) {	//不断的下沉和交换 直至有序
+			heapify(arr, 0, size);	//因为交换后此时堆顶为堆中的较小的数，将其下沉         
+			swap(arr, 0, --size);	//继续将堆顶元素与堆底元素交换
+		}
+	}
+
+	public static void heapInsert(int[] arr, int index) {//构造大根堆，向上浮
+		while (arr[index] > arr[(index - 1) / 2]) {    //如果当前节点大于父节点
+			swap(arr, index, (index - 1) / 2);			//那就交换
+			index = (index - 1) / 2;					//再往上浮
+		}
+	}
+
+	public static void heapify(int[] arr, int index, int size) {//向下沉  size为堆部分长度
+		int left = index * 2 + 1;	//记录左儿子
+		while (left < size) {
+			//判断右儿子是否越界且右儿子是否大于左儿子，将左右儿子较大的那个的下标记录下来
+			int largest = left + 1 < size && arr[left + 1] > arr[left] ? left + 1 : left;
+			largest = arr[largest] > arr[index] ? largest : index;//判断左右儿子较大的数是否大于当前节点的数，记录下二者较大的
+			if (largest == index) {		//如果这个节点已经是子树的最大值了，就结束循环
+				break;
+			}
+			swap(arr, largest, index);  //潜台词：这个节点不是子树中的最大值，，，那么就将此节点和其中一个叶子节点交换
+			index = largest;			//再往下沉
+			left = index * 2 + 1;		
+		}
+	}
+
+	public static void swap(int[] arr, int i, int j) {
+		int tmp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = tmp;
+	}
+	public static void print(int [] arr){
+		for (int i : arr) {
+			System.out.print(i+" ");
+		}
+	}
+}

@@ -1,0 +1,13 @@
+package com.gao.test2;
+
+import java.text.DateFormat;
+import java.util.Date;
+
+public class Test06 {
+	public static void main(String[] args) {
+		//1. 输出 date 时 西方国家的时间风格
+		Date date = new Date();
+		String s = DateFormat.getDateTimeInstance().format(date);
+		System.out.println(s);
+	}
+}

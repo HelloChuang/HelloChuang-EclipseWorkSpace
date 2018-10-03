@@ -1,0 +1,5 @@
+package com.gao.test2;
+
+public class Test05 implements Interface01,Interface02{
+	
+}

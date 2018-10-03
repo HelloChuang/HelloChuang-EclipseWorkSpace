@@ -1,0 +1,19 @@
+package com.gao.test2;
+
+public class MyString {
+	public static void main(String[] args) {
+		String s = "0123456789";
+		
+		System.out.println(s.indexOf(2, 0));
+	}
+	private final  char [] value ;
+	public MyString(){
+		this.value = new char[0];
+	}
+	public MyString(String str){
+		this.value = str.toCharArray();
+	}
+	public int length(){
+		return this.value.length;
+	}
+}

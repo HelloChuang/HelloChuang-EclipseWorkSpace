@@ -1,0 +1,72 @@
+package com.gao.test3;
+
+public class Test01 {
+	
+	public static void main(String[] args) {
+		Dog dog = new Dog("哈士奇",1,false,"吃屎");
+		dog.shut();
+		dog.run();
+		
+	}
+}
+class Dog{
+	private String type;
+	private int age;
+	private boolean mood = true;
+	private String name;
+	
+	public Dog() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Dog(String type, int age, boolean mood,String name) {
+		super();
+		this.type = type;
+		this.age = age;
+		this.mood = mood;
+		this.name = name;
+	}
+	public  void shut(){
+		if(mood){
+			System.out.println("名字叫"+this.name+"的"+this.type+"开心的汪汪叫");
+		}else{
+			System.out.println("名字叫"+this.name+"的"+this.type+"伤心的呜呜叫");
+		}
+	}
+	public  void run(){
+		if(mood){
+			System.out.println("名字叫"+this.name+"的"+this.type+"开心的围着主人身边转");
+		}
+		else{
+			System.out.println("名字叫"+this.name+"的"+this.type+"伤心的一动不动");
+		}
+		
+	}
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public boolean isMood() {
+		return mood;
+	}
+	public void setMood(boolean mood) {
+		this.mood = mood;
+	}
+}
+	

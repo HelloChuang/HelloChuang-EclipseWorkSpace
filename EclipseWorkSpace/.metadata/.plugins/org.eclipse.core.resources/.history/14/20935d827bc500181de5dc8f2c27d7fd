@@ -1,0 +1,17 @@
+package com.gao.test2;
+
+import java.util.Scanner;
+
+public class Test016 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		verify(sc.next());
+		
+	}
+	public static void verify(String user){
+		if(user==" "||user.length()>6||user.contains("0")||user.contains("1")||user.contains("2")||user.contains("3")||
+				user.contains("4")||user.contains("5")||user.contains("6")||user.contains("7")||user.contains("8")||
+				user.contains("9"))
+			System.out.println("请输入合法的用户名");
+	}
+}

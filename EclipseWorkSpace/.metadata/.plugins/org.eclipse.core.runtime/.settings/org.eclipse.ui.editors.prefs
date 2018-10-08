@@ -23,7 +23,6 @@ org.eclipse.cdt.ui.occurrenceIndicationColor=0,0,0
 overviewRuler_migration=migrated_3.1
 printMarginColor=208,208,208
 pydevOccurrenceIndicationColor=0,0,0
-quickdiff.quickDiff=false
 searchResultIndicationColor=0,0,0
 secondaryIPColor=42,42,42
 writeOccurrenceIndicationColor=0,0,0

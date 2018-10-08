@@ -1,0 +1,85 @@
+package com.gao.test3;
+
+import java.util.Scanner;
+
+public class Test07 {
+	
+}
+abstract class Drink{
+	private String name;
+	private int capacity;
+	public abstract void show();
+	
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the capacity
+	 */
+	public int getCapacity() {
+		return capacity;
+	}
+	/**
+	 * @param capacity the capacity to set
+	 */
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+	
+}
+class Coffee extends Drink{
+	
+	
+	Scanner sc = new Scanner(System.in);
+	@Override
+	public void show() {
+		System.out.println("请输入购买容量：");
+		setCapacity(sc.nextInt());
+		System.out.println("请问是否要配料：（1.加糖     2.加奶   3.什么都不加）");
+		int choosed = sc.nextInt();
+		switch (choosed) {
+		case 1:
+			
+			break;
+		case 2:
+			
+			break;
+		case 3:
+			
+			break;
+
+		default:
+			break;
+		}
+	}
+	
+}
+class Water extends Drink{
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+class Cola extends Drink{
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

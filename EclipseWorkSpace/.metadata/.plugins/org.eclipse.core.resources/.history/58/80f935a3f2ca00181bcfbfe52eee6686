@@ -1,0 +1,92 @@
+package com.gao.test3;
+
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+
+@SuppressWarnings("all")
+public class Test08 {
+	public static void main(String[] args) {
+			Student s1 = new Student(5);
+			Student s2 = new Student(3);
+			Student s3 = new Student(7);
+			Student s4 = new Student(1);
+			
+			TreeMap<Student,Integer> treeMap = new TreeMap<>(new Comp());
+			
+			treeMap.put(s1, 2);
+			treeMap.put(s2, 2);
+			treeMap.put(s3, 2);
+			treeMap.put(s4, 2);
+			
+			Set<Entry<Student,Integer>> entrySet = treeMap.entrySet();
+			Iterator<Entry<Student, Integer>> iterator = entrySet.iterator();
+			
+			while(iterator.hasNext()){
+				Entry<Student, Integer> next = iterator.next();
+				System.out.println(next.getKey()+"----"+next.getValue());
+				
+			}
+	}
+
+
+}
+class Student{
+	private int age;
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Student(int age) {
+		super();
+		this.age = age;
+	}
+
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	
+}
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	

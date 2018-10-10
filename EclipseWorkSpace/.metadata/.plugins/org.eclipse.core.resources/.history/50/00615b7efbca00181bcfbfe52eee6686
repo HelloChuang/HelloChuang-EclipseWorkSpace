@@ -1,0 +1,30 @@
+package com.gao.test3;
+
+public class Test10 {
+	public static void main(String[] args) {
+		String s = "931099184";
+		String regex = "[1-9]\\d{4,10}";
+		System.out.println(s.matches(regex));
+		
+		String s2 = "www.baidu.com";
+		String regex2 = "\\.";
+		String[] split = s2.split(regex2);
+		for (String string : split) {
+			
+			System.out.println(string);
+		}
+		
+		String s3 = "abcedaaaaabceeeeeekklsjadfhjjjjj";
+		String regex3 = "(\\w)\\1+";
+		String replacement = "***";
+		String ss = s3.replaceAll(regex3, replacement);
+		System.out.println(ss);
+		
+		String s4 = "15893687236";
+		String regex4 = "(1[35789][\\d])(\\d{4})(\\d{4})";
+		String replacement2 = "$1****$3";
+		String sss = s4.replaceAll(regex4, replacement2);
+		System.out.println(sss);
+		
+	}
+}

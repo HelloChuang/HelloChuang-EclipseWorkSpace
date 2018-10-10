@@ -1,0 +1,6 @@
+package com.gao.io;
+
+public class Student {
+	int age;
+	
+}

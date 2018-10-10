@@ -1,0 +1,11 @@
+package com.gao.test3;
+
+public class Test10 {
+	public static void main(String[] args) {
+		String s = "931099184";
+		String regex = "[1-9]\\d{4,10}";
+		System.out.println(s.matches(regex));
+		
+		
+	}
+}

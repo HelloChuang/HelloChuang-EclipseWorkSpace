@@ -1,37 +1,89 @@
 package com.gao.test3;
 
-import java.util.HashMap;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
 
 @SuppressWarnings("all")
 public class Test08 {
 	public static void main(String[] args) {
-		
-		HashMap  p= new HashMap();
-		p.put(34, 1);
-		p.put(23, 1);
-		p.put(12, 1);
-		p.put(6, 1);
-		p.put(3, 1);
-		p.put(35, 1);
-		p.put(234, 1);
-		p.put(34, 1);
-		p.put(67, 1);
-		p.put(89, 1);
-		p.put(56, 1);
-		p.put(77, 1);
-		p.put(44, 1);
-		p.put(55, 1);
-		p.put(32, 1);
-		p.put(123, 1);
-		p.put(80, 1);
-		p.put(61, 1);
-		p.put(65, 1);
-	
-		
-		System.out.println(p);
+			Student s1 = new Student(5);
+			Student s2 = new Student(3);
+			Student s3 = new Student(7);
+			Student s4 = new Student(1);
+			
+			TreeMap treeMap = new TreeMap(new Comparator<Student>() {
+
+				@Override
+				public int compare(Student o1, Student o2) {
+					
+					return o1.getAge()-o2.getAge();
+				}
+				
+			});
+			
+			treeMap.put(s1, 2);
+			treeMap.put(s2, 2);
+			treeMap.put(s3, 2);
+			treeMap.put(s4, 2);
+			
+			Set<Entry<Student,Integer>> entrySet = treeMap.entrySet();
+			Iterator<Entry<Student, Integer>> iterator = entrySet.iterator();
+			
+			while(iterator.hasNext()){
+				Entry<Student, Integer> next = iterator.next();
+				System.out.println(next.getKey().toString()+"----"+next.getValue());
+				
+			}
 	}
+
+
 }
-   
+class Student implements Comparable<Student>{
+	private int age;
+
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Student(int age) {
+		super();
+		this.age = age;
+	}
+
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Student [age=" + age + "]";
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		
+		return this.age - o.age;
+	}
+	
+	
+}
 	 
 	 
 	 

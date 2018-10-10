@@ -1,0 +1,25 @@
+package com.gao.io;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class Test01 {
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		try {
+			FileInputStream fis = new FileInputStream("D:\\Test\\test.txt");
+			  byte [] arr = new byte[4];
+			   int b ;
+		        while ((b=fis.read(arr)) != -1) {
+		            System.out.println(new String(arr,0,b));
+		        }
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}	

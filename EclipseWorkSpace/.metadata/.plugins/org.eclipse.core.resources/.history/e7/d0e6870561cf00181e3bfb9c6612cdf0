@@ -1,0 +1,52 @@
+package com.gao.test4;
+
+public class Test15_Deadlock2 {
+	public static void main(String[] args) throws InterruptedException {
+		Deadlock2 d2 = new Deadlock2();
+		
+		
+		
+		new Thread(d2,"线程1").start();
+		
+		//Thread.sleep(100);//为什么非要加这个才能检测到死锁呢？假如不加,线程1线程2几乎同时,但时间差不够大,其中一个线程一下子把任务执行完了
+		d2.b = false;
+		new Thread(d2,"线程2").start();
+		
+		
+		
+	
+	}
+}
+class Deadlock2 implements Runnable{
+	boolean b = true;
+	Object obj1 = new Object();
+	Object obj2 = new Object();
+	@Override
+	public void run() {
+		if(b){
+			synchronized (obj1) {
+				try {
+					Thread.sleep(1000);//防止线程1一下子就把任务执行完
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				synchronized (obj2) {
+					
+				}
+			}
+		}else{
+			synchronized (obj2) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				synchronized (obj1) {
+					
+				}
+			}
+		}
+		
+	}
+	
+}

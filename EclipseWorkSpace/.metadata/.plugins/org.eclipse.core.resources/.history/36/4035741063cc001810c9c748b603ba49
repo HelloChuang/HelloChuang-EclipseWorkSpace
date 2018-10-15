@@ -1,0 +1,92 @@
+package com.gao.test3;
+
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class Test12 {
+	static TreeMap<String, String> map = new TreeMap<>();
+	static Scanner sc = new Scanner(System.in);
+	static boolean isRegist = false;
+	public static void main(String[] args) {
+		menu();
+	}
+	public static void menu(){
+		while(true){
+			System.out.println("=======menu======");
+			System.out.println("1.。。。。。登陆");
+			System.out.println("2.。。。。。注册");
+			System.out.println("3.。。。。。改密");
+			System.out.println("4.。。。。。退出");
+			
+			int x = sc.nextInt();
+			switch (x) {
+			case 1:
+				login();
+				break;
+			case 2:
+				regist();
+				break;
+			case 3:
+				resetPassword();
+				break;
+			case 4:
+				return;
+				
+
+			default:
+				System.out.println("please enter right number!!!");
+			}
+		}
+		
+		
+	}
+	public static void regist(){
+		
+		System.out.println("=========regist");
+		
+		System.out.println("please enter ID");
+		String id = sc.next();
+		System.out.println("please enter password");
+		String password = sc.next();
+		map.put(id, password);
+		System.out.println("regist success!!");
+	}
+	public static void login(){
+		System.out.println("==========login");
+		System.out.println("please enter ID");
+		String id = sc.next();
+		if(map.containsKey(id)){
+			System.out.println("please enter password");
+			String password = sc.next();
+			if(map.get(id).equals(password)){
+				System.out.println("regist success!!!");
+				isRegist = true;
+			}else{
+				System.out.println("error password!  try again!!");
+				return;
+			}
+		}else{
+			System.out.println("no id! please to login");
+		}
+		
+		
+	}
+	public static void resetPassword(){
+		if(isRegist==false){
+			System.out.println("please regist!!");
+		}
+		System.out.println();
+		System.out.println("please enter ID");
+		String id = sc.next();
+		System.out.println("please enter password");
+		String password = sc.next();
+		map.put(id, password);
+	}
+	public static boolean idCheck(String id){
+		String regex = "\\w{6,16}";
+		if(id.matches(regex)){
+			return true;
+		}
+		return false;
+	}
+}

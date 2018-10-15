@@ -1,0 +1,49 @@
+package com.gao.test4;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+/**
+ *测试反序列化生成的副本与原对象是否相等
+ */
+public class Test10_serializable {
+	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+		Dog son2 = new Dog(15);
+	//	write(son2);
+		Dog read = read();
+		System.out.println(read==son2);
+	}
+
+
+
+private static Dog read() throws FileNotFoundException, IOException, ClassNotFoundException {
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("d:\\ooo.txt"));
+		Dog readObject =(Dog) ois.readObject();
+		return readObject;
+	}
+
+
+
+private static void write(Dog son2) throws FileNotFoundException, IOException {
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("d:\\ooo.txt"));
+		oos.writeObject(son2);
+		
+	}
+
+}
+class Dog implements Serializable{
+	int age;
+
+	public Dog(int age) {
+		super();
+		this.age = age;
+	}
+	
+}
+

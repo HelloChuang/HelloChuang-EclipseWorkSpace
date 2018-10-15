@@ -1,0 +1,32 @@
+package com.gao.test4;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+/**
+ *测试字符流
+ */
+public class Test02 {
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		FileWriter fw = null;
+		FileReader fr = null;
+		try {
+			fw = new FileWriter("f:\\test.txt");
+			fw.write("测试字符流");
+//			fw.flush();
+//			fw.close();
+			fr = new FileReader("f:\\test.txt");
+			int read = fr.read();
+			while(read != -1){
+				System.out.println((char)read);
+				read = fr.read();
+			}
+			fr.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

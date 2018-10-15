@@ -1,0 +1,98 @@
+package com.gao.test4;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+@SuppressWarnings("all")
+public class Test09 {
+	public static void main(String[] args) {
+//		write();
+		read();
+	}
+	public static void read(){
+		ArrayList<Son> list = new ArrayList<>();
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("d:\\testObj.txt"));
+			Object o = ois.readObject();
+			
+			
+			
+				
+			System.out.println(o);
+			
+		
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void write(){
+		try {
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("d:\\testObj.txt"));
+			oos.writeObject(new Son(18,"郜创"));
+//			oos.writeObject(new Son(1,"郜创新"));
+//			oos.writeObject(new Son(15,"创"));
+			oos.flush();
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+
+class Son implements Serializable{
+	int age;
+	String name;
+	public Son() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Son(int age, String name) {
+		super();
+		this.age = age;
+		this.name = name;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Son [age=" + age + ", name=" + name + "]";
+	}
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+}

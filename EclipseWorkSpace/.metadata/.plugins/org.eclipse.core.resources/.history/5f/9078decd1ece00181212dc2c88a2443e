@@ -1,0 +1,55 @@
+package com.gao.test4;
+
+import java.io.Serializable;
+
+/**
+ *测试反序列化生成的副本与原对象是否相等
+ */
+public class Test10 {
+	
+}
+class Son2 implements Serializable{
+	int age;
+	String name;
+	public Son2() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Son2(int age, String name) {
+		super();
+		this.age = age;
+		this.name = name;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Son [age=" + age + ", name=" + name + "]";
+	}
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+}

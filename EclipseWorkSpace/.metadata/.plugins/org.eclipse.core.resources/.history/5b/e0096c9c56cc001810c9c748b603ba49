@@ -1,0 +1,8 @@
+package com.gao;
+
+public class OverwritePerson {
+	
+}
+class Student extends Test_OverwritePerson{
+	
+}

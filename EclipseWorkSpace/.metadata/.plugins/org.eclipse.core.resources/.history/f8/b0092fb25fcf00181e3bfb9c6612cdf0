@@ -1,0 +1,55 @@
+package com.gao.test4;
+
+/**
+ *写一个死锁
+ *一开始不小心把if中的两个线程锁代码块写分离了，第二个线程锁代码块应该嵌套在第一个线程锁中
+ *这样才能实现：当一个线程获取完obj1锁，要等待另一个线程释放obj2锁
+ *于此同时，另一个锁也在等待此线程释放obj1锁   造成了死锁
+ *
+ */
+public class Test15_Deadlock {
+	public static void main(String[] args) throws InterruptedException {
+		Deadlock deadlock = new Deadlock();
+		new Thread(deadlock,"111").start();
+		
+		Thread.sleep(1000);
+		deadlock.b = false;
+		new Thread(deadlock,"222").start();
+	}
+}
+class Deadlock implements Runnable{
+	boolean b = true;
+	Object obj1 = new Object();
+	Object obj2 = new Object();
+	@Override
+	public void run() {
+			if(b){
+				synchronized(obj1){
+					System.out.println(Thread.currentThread().getName()+"获得了 obj1锁");
+					try {
+						Thread.sleep(300);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				
+				synchronized(obj2){
+					System.out.println(Thread.currentThread().getName()+"获得了 obj2锁");
+				}
+				}
+			}else{
+				synchronized(obj2){
+					System.out.println(Thread.currentThread().getName()+"获得了 obj2锁");
+					try {                 
+						Thread.sleep(300);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				
+				synchronized(obj1){
+					System.out.println(Thread.currentThread().getName()+"获得了 obj1锁");
+				}
+			}
+			}
+	}
+	
+}

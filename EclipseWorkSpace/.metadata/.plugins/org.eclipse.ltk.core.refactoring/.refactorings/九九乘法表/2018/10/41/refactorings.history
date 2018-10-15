@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;test.java&apos; to &apos;简单的练习/src/com.gao&apos;&#x0D;&#x0A;- Original project: &apos;九九乘法表&apos;&#x0D;&#x0A;- Destination element: &apos;简单的练习/src/com.gao&apos;&#x0D;&#x0A;- Original element: &apos;九九乘法表.test.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=简单的练习/src&lt;com.gao" element1="/src&lt;九九乘法表{test.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1539152650920" units="1" version="1.0"/>
+</session>

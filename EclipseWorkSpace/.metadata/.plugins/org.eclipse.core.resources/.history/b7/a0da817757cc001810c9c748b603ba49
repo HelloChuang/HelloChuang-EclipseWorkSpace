@@ -1,0 +1,8 @@
+package com.gao;
+
+public class Test_Abstruct_Test {
+	public static void main(String[] args) {
+		Dog g = new Cat();
+		g.run();
+	}
+}

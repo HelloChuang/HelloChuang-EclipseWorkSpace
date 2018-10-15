@@ -1,0 +1,33 @@
+package com.gao.test;
+
+public class Test_FOR_Reverse {
+	public static void main(String[] args) {
+		int [] arr = {9,3,1,0,9,9,1,8,4,0};
+		print(arr);
+		reverseArray(arr);
+		print(arr);
+	}
+	public static void reverseArray(int [] arr){
+		int mid = (arr.length)>>1;
+		
+		int j  = 1;
+		int temp ;
+		for (int i = 0; i < mid; i++) {
+			temp = arr[arr.length-j];
+			arr[arr.length-j] = arr[i];
+			arr[i] = temp;
+			j++;
+			if(i==mid||j==mid)break;
+		}
+		
+	}
+	public static void print(int [] arr){
+		System.out.println();
+		for (int i : arr) {
+			System.out.print(i+" ");
+		}
+		System.out.println();
+		System.out.println();
+	
+	}
+}

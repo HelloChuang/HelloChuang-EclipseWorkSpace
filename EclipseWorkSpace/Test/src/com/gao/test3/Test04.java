@@ -1,5 +1,7 @@
 package com.gao.test3;
 
+
+
 public class Test04 {
 	public static void main(String[] args) {
 		Person actor = new Actor("郜创",18,true,"zzu","《呵呵》");

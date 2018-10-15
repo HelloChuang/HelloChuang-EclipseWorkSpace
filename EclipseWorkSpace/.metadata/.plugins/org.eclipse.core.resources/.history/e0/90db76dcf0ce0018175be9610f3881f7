@@ -1,0 +1,48 @@
+package com.gao.test4;
+
+public class Test16_ThreadCommunication {
+	public static void main(String[] args) throws InterruptedException {
+		Thread ct = Thread.currentThread();
+		ct.setPriority(6);				//设置main线程的优先级
+		System.out.println(ct);			//main线程的信息，【线程名，优先级，所属的线程组】
+		
+		ThreadCommunication tc = new ThreadCommunication();
+		Thread t = new Thread(tc,"线程1");
+		Thread t2 = new Thread(tc,"线程2");
+		System.out.println(t);
+		t.setPriority(4);
+		t.start();
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		for (int i = 0; i < 10; i++) {
+			Thread.sleep(100);
+			System.out.println(ct.getName());
+		}
+	}
+}
+class ThreadCommunication implements Runnable{
+
+	@Override
+	public void run() {
+		for (int i = 0; i < 10; i++) {
+			
+			System.out.println(Thread.currentThread().getName());
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,30 @@
+package com.gao.test4;
+
+public class Test11_Thread_Work {
+	public static void main(String[] args) {
+		Work work = new Work();
+		The the = new The("郜创",work);
+		the.start();
+	}
+}
+class The extends Thread{
+	Work work;
+	public The(String name,Work work){
+		super(name);
+		this.work = work;
+	}
+	@Override
+	public void run() {
+		for (int i = work.i; i < 10; i++) {
+			System.out.println(Thread.currentThread()+":    "+i);
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+class Work{
+	int i;
+}

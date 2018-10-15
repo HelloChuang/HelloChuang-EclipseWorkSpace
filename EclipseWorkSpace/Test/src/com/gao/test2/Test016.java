@@ -6,6 +6,10 @@ import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * @author XX
+ *	习题:画个内存图就知道了
+ */
 public class Test016 {
 	public static void main(String args[]) {
 		StringBuffer a = new StringBuffer("A");
@@ -14,7 +18,7 @@ public class Test016 {
 		System.out.println(a + "." + b);
 	} 
 	static void mb_operate(StringBuffer x, StringBuffer y) {
-		x.append(y);//
+		x.append(y);
 		y = x;
 	} 
 }

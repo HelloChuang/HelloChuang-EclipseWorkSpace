@@ -1,0 +1,21 @@
+package com.gao.test3;
+
+import java.util.Scanner;
+
+public class Test16 {
+	public static void main(String[] args) {
+					Scanner sc = new Scanner(System.in);
+//					int i = sc.nextInt();
+//					String s1 = sc.nextLine();
+//					String s2 = sc.nextLine();
+//					
+//					System.out.println(i);
+//					System.out.println(s1);
+//					System.out.println(s2);
+					String s1 = sc.nextLine();
+					System.out.println("asdasd");
+					
+					
+          
+	}
+}

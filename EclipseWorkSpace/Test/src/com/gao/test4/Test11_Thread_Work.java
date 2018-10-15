@@ -1,0 +1,37 @@
+package com.gao.test4;
+
+/**
+ *为了获得共享资源,所以多建了一个类,让所有的线程共享这个类,就做到了资源共享
+ */
+public class Test11_Thread_Work {
+	public static void main(String[] args) {
+		Work work = new Work();
+		The the1 = new The("郜创1",work);
+		The the2 = new The("郜创2",work);
+		The the3= new The("郜创3",work);
+		the1.start();
+		the2.start();
+		the3.start();
+	}
+}
+class The extends Thread{
+	Work work;
+	public The(String name,Work work){
+		super(name);
+		this.work = work;
+	}
+	@Override
+	public void run() {
+		for (; work.i < 10; work.i++) {
+			System.out.println(Thread.currentThread().getName()+":    "+work.i);
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+class Work{
+	int i;
+}

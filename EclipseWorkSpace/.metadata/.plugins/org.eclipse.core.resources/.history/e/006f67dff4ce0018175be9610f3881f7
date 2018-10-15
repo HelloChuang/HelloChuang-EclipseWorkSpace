@@ -1,0 +1,78 @@
+package com.gao.test4;
+
+public class Test17 {
+    public static void main(String[] args) {
+        Call call = new Call();
+        Runnable sc = new SC(call);
+        Runnable xf = new XF(call);
+        
+        // 开启生产 消费线程
+        new Thread(sc).start();
+        new Thread(xf).start();
+    }
+}
+​
+class SC implements Runnable{
+    Call call;
+    public SC(Call call) {
+        super();
+        this.call = call;
+    }
+    @Override
+    public void run() {
+        int i = 1;
+        while( true ){
+            if( i %2 == 0){
+                call.setName("苹果");
+                call.setId(" X "+i);
+            }else{
+                call.setName("华为");
+                call.setId(" 荣耀8 "+i);
+            }
+            i++;
+        }
+    }
+}
+​
+class XF implements Runnable{
+    Call call;
+    public XF(Call call) {
+        super();
+        this.call = call;
+    }
+    @Override
+    public void run() {
+        while(true){
+            System.out.println("消费 : "+call);
+        }
+    }
+}
+​
+class Call{
+    String name ;
+    String id;
+    public Call() {
+       
+    }
+    public Call(String name, String id) {
+        super();
+        this.name = name;
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+    @Override
+    public String toString() {
+        return "Call [name=" + name + ", id=" + id + "]";
+    }
+}

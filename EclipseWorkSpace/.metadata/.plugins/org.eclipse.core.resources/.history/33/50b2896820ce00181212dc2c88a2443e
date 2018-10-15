@@ -1,0 +1,85 @@
+package com.gao.test4;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+/**
+ *测试反序列化生成的副本与原对象是否相等
+ */
+public class Test10 {
+	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+		Dog son2 = new Dog(18,"sss");
+		write(son2);
+		read();
+	}
+
+
+
+private static Dog read() throws FileNotFoundException, IOException, ClassNotFoundException {
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("d:\\ooo.txt"));
+		Dog readObject =(Dog) ois.readObject();
+		return readObject;
+	}
+
+
+
+private static void write(Dog son2) throws FileNotFoundException, IOException {
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("d:\\ooo.txt"));
+		oos.writeObject(son2);
+		
+	}
+
+
+
+class Dog implements Serializable{
+	int age;
+	String name;
+	public Dog() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Dog(int age, String name) {
+		super();
+		this.age = age;
+		this.name = name;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Son [age=" + age + ", name=" + name + "]";
+	}
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+}
+}

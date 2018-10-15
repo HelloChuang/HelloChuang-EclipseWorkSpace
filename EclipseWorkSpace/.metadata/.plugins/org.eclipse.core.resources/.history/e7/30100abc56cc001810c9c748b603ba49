@@ -1,0 +1,39 @@
+package com.gao;
+
+import java.lang.reflect.Array;
+
+/**
+ * @author Gaoch
+ *参数传值机制
+ *分析内存状态 ，轻易就能理解参数传递状态̬
+ *
+ */
+public class TestParameterValuePassingMechanism {
+	String name;
+	int id;
+	int age;
+	
+	public TestParameterValuePassingMechanism(String name,int age) {
+		this.name = name;
+		this.age = age;
+	}
+	
+	void test1(TestParameterValuePassingMechanism u) {
+		u.age = 20;
+		
+	}
+	
+	void test2(TestParameterValuePassingMechanism u) {
+		u = new TestParameterValuePassingMechanism("gaochuang",21);
+	}
+	public static void main(String[] args) {
+		TestParameterValuePassingMechanism user = new TestParameterValuePassingMechanism("gaochuang",18);
+		user.test1(user);
+		System.out.println(user.age);
+		user.test2(user);
+		System.out.println(user.age);
+		char [] c = new char[8];
+		int [] a = new int[8];
+		
+	}
+}

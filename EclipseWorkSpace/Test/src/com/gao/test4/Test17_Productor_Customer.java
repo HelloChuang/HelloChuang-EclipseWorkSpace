@@ -1,0 +1,123 @@
+package com.gao.test4;
+
+/**
+ *	单线程生产者  单线程消费者
+ */
+public class Test17_Productor_Customer {
+	public static void main(String[] args) {
+		Phone ph = new Phone();
+		Productor p = new Productor(ph);
+		Customer c = new Customer(ph);
+		
+		Thread t1 = new Thread(p);
+		Thread t2 = new Thread(c);
+		
+		t1.start();
+		t2.start();
+	}
+}
+class Productor implements Runnable{
+	Phone p;
+	public Productor(Phone p) {
+		this.p = p;
+	}
+	
+	@Override
+	public void run() {
+		int i = 1;
+		while(true){
+			synchronized (p) {  //当生产者开始生产时开始加锁，不让消费者进行消费
+				if(i%2==0){
+					p.setName("苹果"); 
+					p.setId("x"+i);
+				}else{
+					p.setName("华为"); 
+					p.setId("mate20"+i);
+				}
+				i++;
+				System.out.println("生产了---------"+p);
+				p.notify();   //唤醒和等待都要在锁内执行，
+				try {
+					p.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		
+		}
+	}
+	
+}
+class Customer implements Runnable{
+	Phone p;
+	public Customer(Phone p) {
+		this.p = p;
+	}
+	@Override
+	public void run() {
+		synchronized (p) {//当消费者开始消费时，开始加锁，不让生产者进行生产
+			while(true){
+				System.out.println("消费者: "+p.name+p.id);
+				p.notify();
+				try {
+					p.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			
+		}
+		
+		
+	}
+	
+}
+
+class Phone{
+	String name;
+	String id;
+	public Phone() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Phone(String name, String id) {
+		super();
+		this.name = name;
+		this.id = id;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the id
+	 */
+	public String getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(String id) {
+		this.id = id;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Phone [name=" + name + ", id=" + id + "]";
+	}
+	
+	
+}

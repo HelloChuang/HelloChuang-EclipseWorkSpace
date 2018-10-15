@@ -1,0 +1,43 @@
+package com.gao.test4;
+
+public class Test15_Deadlock {
+	public static void main(String[] args) {
+		Deadlock deadlock = new Deadlock();
+		new Thread(deadlock).start();
+		new Thread(deadlock).start();
+	}
+}
+class Deadlock implements Runnable{
+	boolean b = true;
+	Object obj1 = new Object();
+	Object obj2 = new Object();
+	@Override
+	public void run() {
+			if(b){
+				synchronized(obj1){
+					System.out.println(Thread.currentThread().getName()+"获得了 obj1锁");
+					try {
+						Thread.sleep(300);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				synchronized(obj2){
+					System.out.println(Thread.currentThread().getName()+"获得了 obj2锁");
+				}
+			}else{
+				synchronized(obj2){
+					System.out.println(Thread.currentThread().getName()+"获得了 obj1锁");
+					try {                 
+						Thread.sleep(300);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				synchronized(obj1){
+					System.out.println(Thread.currentThread().getName()+"获得了 obj2锁");
+				}
+			}
+	}
+	
+}

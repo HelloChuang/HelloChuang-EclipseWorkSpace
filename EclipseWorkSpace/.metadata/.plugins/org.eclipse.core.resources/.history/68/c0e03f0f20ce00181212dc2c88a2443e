@@ -1,0 +1,117 @@
+package com.gao.test4;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+/**
+ *测试反序列化生成的副本与原对象是否相等
+ */
+public class Test10 {
+	public static void main(String[] args) {
+		Son2 son2 = new Son2(2,"ss");
+		write(son2);
+	//	read();
+	}
+	public static Son2 read(){
+		ObjectInputStream ois = null;
+		ArrayList<Son2> list = new ArrayList<>();
+		Son2 s = null;
+		try {
+			ois = new ObjectInputStream(new FileInputStream("d:\\testObj.txt"));
+			
+			while(true){
+				Object o = ois.readObject();
+				
+				if(o instanceof Son2){
+					s = (Son2)o;
+				}
+				list.add(s);
+			}
+			
+		return s;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("读取完毕!");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				ois.close();
+				for (Son2 s : list) {
+					System.out.println(s);
+				}
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	public static void write(Son2 son){
+		try {
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("d:\\testObj.txt"));
+			oos.writeObject(son);
+			oos.flush();
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+
+class Son2 implements Serializable{
+	int age;
+	String name;
+	public Son2() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Son2(int age, String name) {
+		super();
+		this.age = age;
+		this.name = name;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Son [age=" + age + ", name=" + name + "]";
+	}
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+}

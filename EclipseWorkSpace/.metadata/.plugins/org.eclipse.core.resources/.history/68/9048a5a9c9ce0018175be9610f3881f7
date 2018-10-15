@@ -1,0 +1,44 @@
+package com.gao.test4;
+
+public class Test13 {
+	public static void main(String[] args) {
+		Flag flag = new Flag();
+		Runn runn = new Runn(flag);
+		new Thread( runn,"线程1").start();;
+		new Thread( runn,"线程2").start();;
+		new Thread( runn,"线程3").start();;
+		new Thread( runn,"线程4").start();;
+		
+		
+		
+	}
+}
+class  Runn implements Runnable{
+	Flag f;
+	public Runn(Flag f){
+		this.f = f;
+	}
+	@Override
+	public void run() {
+		for (int i = 0; i <5; i++) {
+			
+			synchronized(f){
+				System.out.println(Thread.currentThread().getName()+"进来了");
+				
+				try {
+					System.out.println("先让"+Thread.currentThread().getName()+"进入wait");
+					f.wait();
+					System.out.println("唤醒其余三个线程!");
+					f.notifyAll();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	
+}
+class Flag{
+	
+}

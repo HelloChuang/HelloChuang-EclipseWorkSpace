@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;User.java&apos; to &apos;C1/src/com.gao&apos;&#x0D;&#x0A;- Original project: &apos;参数传值机制&apos;&#x0D;&#x0A;- Destination element: &apos;C1/src/com.gao&apos;&#x0D;&#x0A;- Original element: &apos;参数传值机制.User.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=C1/src&lt;com.gao" element1="/src&lt;参数传值机制{User.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1539152488453" units="1" version="1.0"/>
+</session>

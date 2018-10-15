@@ -1,0 +1,52 @@
+package com.gao.test4;
+
+public class Test15_Deadlock2 {
+	public static void main(String[] args) throws InterruptedException {
+		Deadlock2 d2 = new Deadlock2();
+		
+		
+		
+		new Thread(d2).start();
+		
+		Thread.sleep(100);
+		d2.b = false;
+		new Thread(d2).start();
+		
+		
+		
+	
+	}
+}
+class Deadlock2 implements Runnable{
+	boolean b = true;
+	Object obj1 = new Object();
+	Object obj2 = new Object();
+	@Override
+	public void run() {
+		if(b){
+			synchronized (obj1) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				synchronized (obj2) {
+					
+				}
+			}
+		}else{
+			synchronized (obj2) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				synchronized (obj1) {
+					
+				}
+			}
+		}
+		
+	}
+	
+}

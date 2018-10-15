@@ -1,0 +1,8 @@
+package co.gao;
+
+public class OverwritePerson {
+	
+}
+class Student extends OverwritePerson{
+	
+}

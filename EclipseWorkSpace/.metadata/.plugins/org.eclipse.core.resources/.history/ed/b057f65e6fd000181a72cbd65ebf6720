@@ -1,0 +1,20 @@
+package com.gao.test5;
+
+/**
+ *懒汉式
+ */
+public class Test01_SingleEG {
+	public static void main(String[] args) {
+		System.out.println(Single1.i);
+	}
+}
+class Single1{
+	static int i = 0;
+	private static Single1 s1 = new Single1();
+	private Single1(){
+		System.out.println("我被构建了");
+	}
+	public static  Single1 getSingle1(){
+		return s1;
+	}
+}

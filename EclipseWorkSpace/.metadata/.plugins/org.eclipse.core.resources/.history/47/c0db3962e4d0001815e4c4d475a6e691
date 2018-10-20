@@ -1,0 +1,203 @@
+package com.gao.test5;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.util.concurrent.Callable;
+
+public class ThreadServer implements Callable<Result>{
+		private static int count;
+		Socket socket;
+		public ThreadServer(Socket socket){
+			this.socket = socket;
+		}
+		
+	@Override
+	public Result call() throws Exception {
+		long start = System.currentTimeMillis();
+		
+		Result result = new Result();
+		
+		
+		
+		InputStream is = socket.getInputStream();
+		DataInputStream dis = new DataInputStream(is);
+		String str = dis.readUTF();
+		System.out.println(str);
+		
+		OutputStream os = socket.getOutputStream();
+		DataOutputStream dos = new DataOutputStream(os);
+		dos.writeUTF("请选择您要下载的内容----1.电影-----2.文本");
+		dos.flush();
+		
+		String choosed = dis.readUTF();
+		int i = Integer.parseInt(choosed);
+		if(i==1){
+			
+			FileInputStream fis = new FileInputStream("d:\\test.mp4");
+			BufferedInputStream bis = new BufferedInputStream(fis);
+			
+			BufferedOutputStream bos = new BufferedOutputStream(dos);
+			int read = bis.read();
+			while(read!=-1){
+				bos.write(read);
+				read = bis.read();
+			}
+			
+			bis.close();
+			dos.close();
+			
+		}else{
+			
+		}
+		
+		
+		result.setHoseName(socket.getLocalAddress().getHostName());
+		result.setCostTime(System.currentTimeMillis() - start);
+		result.setServiceResult(true);
+		result.setCount(count++);
+		
+		
+	
+		
+		
+		
+		
+		
+		return result;
+	}
+	
+}
+class Result{
+	int count;
+	int runtime ;
+	boolean serviceResult;
+	long costTime;
+	String hoseName;
+	public Result() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Result(int runtime, boolean serviceResult, long costTime, String hoseName) {
+		super();
+		this.runtime = runtime;
+		this.serviceResult = serviceResult;
+		this.costTime = costTime;
+		this.hoseName = hoseName;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Result [runtime=" + runtime + ", serviceResult=" + serviceResult + ", costTime=" + costTime
+				+ ", hoseName=" + hoseName + "]";
+	}
+	/**
+	 * @return the runtime
+	 */
+	public int getRuntime() {
+		return runtime;
+	}
+	/**
+	 * @param runtime the runtime to set
+	 */
+	public void setRuntime(int runtime) {
+		this.runtime = runtime;
+	}
+	/**
+	 * @return the serviceResult
+	 */
+	public boolean isServiceResult() {
+		return serviceResult;
+	}
+	/**
+	 * @param serviceResult the serviceResult to set
+	 */
+	public void setServiceResult(boolean serviceResult) {
+		this.serviceResult = serviceResult;
+	}
+	/**
+	 * @return the costTime
+	 */
+	public long getCostTime() {
+		return costTime;
+	}
+	/**
+	 * @param costTime the costTime to set
+	 */
+	public void setCostTime(long costTime) {
+		this.costTime = costTime;
+	}
+	/**
+	 * @return the hoseName
+	 */
+	public String getHoseName() {
+		return hoseName;
+	}
+	/**
+	 * @param hoseName the hoseName to set
+	 */
+	public void setHoseName(String hoseName) {
+		this.hoseName = hoseName;
+	}
+	/**
+	 * @return the count
+	 */
+	public int getCount() {
+		return count;
+	}
+	/**
+	 * @param count the count to set
+	 */
+	public void setCount(int count) {
+		this.count = count;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (costTime ^ (costTime >>> 32));
+		result = prime * result + count;
+		result = prime * result + ((hoseName == null) ? 0 : hoseName.hashCode());
+		result = prime * result + runtime;
+		result = prime * result + (serviceResult ? 1231 : 1237);
+		return result;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Result other = (Result) obj;
+		if (costTime != other.costTime)
+			return false;
+		if (count != other.count)
+			return false;
+		if (hoseName == null) {
+			if (other.hoseName != null)
+				return false;
+		} else if (!hoseName.equals(other.hoseName))
+			return false;
+		if (runtime != other.runtime)
+			return false;
+		if (serviceResult != other.serviceResult)
+			return false;
+		return true;
+	}
+	
+}

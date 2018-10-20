@@ -1,0 +1,93 @@
+package com.gao.test5;
+
+/**
+ *懒汉式
+ */
+public class Test01_SingleEG {
+	public static void main(String[] args) {
+		System.out.println(Single1.i);
+		//System.out.println(Single4.InnerSingleton.getSingle4());
+	}
+}
+/**
+ *懒汉式
+ *保证了只能创建一个对象
+ *但可能创建的时机过早,只是想调用i,但却连着把对象也创建了
+ */
+class Single1{
+	static int i = 0;
+	private static Single1 s1 = new Single1();
+	private Single1(){
+		System.out.println("我被构建了");
+	}
+	public static Single1 getSingle1(){  //这个static如果不加  就没法调用这个方法
+		return s1;
+	}
+}
+
+/**
+ *饿汉式
+ *保证了只能创建一个对象
+ *解决了对象可能创建的过早的问题
+ *
+ *  优点  : 解决了创建时机过早的问题
+ *  缺点  : 单例不安全  有可能会多个实例
+ */
+class Single2{
+	static int i = 0;
+	private static Single2 s2 = null;
+	private Single2(){
+		System.out.println("我被构建了");
+	}
+	public static  Single2 getSingle1(){
+		if(s2==null)         
+		s2 = new Single2();//当一个线程进入此句,但还没有完成创建的过程,此时s2仍为null,另一个线程有机会会进入if语句再创建一个对象
+		return s2;
+	}
+}
+/**
+ 双重检索式
+ 1.私有化构造器
+ 2.本类对象作为本类属性存在  不用static修饰
+ 3.公共的静态方法  给属性赋值  只赋值一次
+ 优点  : 解决了创建时机过早的问题  且 单例是安全的
+ 缺点 : 由于JVM内部的机制,可能会出错
+ */
+class Single3{
+	static int i = 0;
+	private static Single3 s3 = null;
+	private Single3(){
+		System.out.println("我被构建了");
+	}
+	public static  Single3 getSingle3(){
+		if(s3==null){
+			synchronized (Single3.class) {   
+				if(s3==null)				// 假如没有此句if判断:::这样会带来与第一种一样的问题，即多个线程同时执行到条件判断语句时，会创建多个实例。
+				s3 = new Single3();		//问题在于当一个线程创建一个实例之后，singleton就不再为空了，但是后续的线程并没有做第二次非空检查。
+			}							//那么很明显，在同步代码块中应该再次做检查，也就是所谓的双重检测：
+		}									
+		
+		return s3;
+	}
+}
+/**
+静态内部类式
+1.私有化构造器
+2.本类对象作为本类属性存在  不用static修饰
+3.公共的静态方法  给属性赋值  只赋值一次
+
+优点  : 解决了创建时机过早的问题  且 单例是安全的   
+*/
+class Single4{
+	static int i = 0;
+	private static Single4 s4  = null;
+	private Single4(){
+		System.out.println("我被构建了");
+	}
+	static class InnerSingleton{
+		public static  Single4 getSingle4(){
+			s4 = new Single4();
+			return s4;
+		}
+	}
+}

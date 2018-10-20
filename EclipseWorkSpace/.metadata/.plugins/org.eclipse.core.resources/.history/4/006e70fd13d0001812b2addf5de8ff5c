@@ -1,0 +1,21 @@
+package com.gao.leavl_1;
+
+public class Retest17_Productor_Custumer {
+	
+}
+class SC implements Runnable{
+	Call call;
+	public SC(Call call){
+		this.call = call;
+	}
+	@Override
+	public void run() {
+		
+		
+	}
+	
+}
+class Call{
+	String name;
+	
+}

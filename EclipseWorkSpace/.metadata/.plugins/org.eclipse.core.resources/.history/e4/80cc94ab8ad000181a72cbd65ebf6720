@@ -1,0 +1,56 @@
+package com.gao.test5;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class Client {
+	static Scanner sc = new Scanner(System.in);
+	@SuppressWarnings("resource")
+	public static void main(String[] args) throws UnknownHostException, IOException {
+		//一旦客户端与服务端取得连接  就会获得socket对象  可以用socket来与服务器进行通信
+		Socket socket = new Socket("192.168.31.44",12345);
+		
+		OutputStream os = socket.getOutputStream();
+		DataOutputStream dos = new DataOutputStream(os);
+		dos.writeUTF(socket.getInetAddress().getHostAddress()+"我是客户端,我来跟你通信了");
+		dos.flush();
+		//接收服务器发送的消息
+		InputStream is = socket.getInputStream();
+		DataInputStream dis = new DataInputStream(is);
+		String str = dis.readUTF();
+		System.out.println(str);
+		
+		//选择要下载的
+		dos.writeUTF(sc.next());
+		dos.flush();
+		
+		//接收服务器发送的文件
+		BufferedInputStream bis = new BufferedInputStream(dis);
+		
+		FileOutputStream fos = new FileOutputStream("f:\\hehehe.mp4");
+		BufferedOutputStream bos = new BufferedOutputStream(fos);
+		int read = bis.read();
+		while(read!=-1){
+			bos.write(read);
+			read = bis.read();
+		}
+		System.out.println("下载完成!");
+		dos.writeUTF(socket.getInetAddress().getHostAddress()+"下载完成!");
+		
+		fos.close();
+		bis.close();
+		
+		
+		
+		
+	}
+}

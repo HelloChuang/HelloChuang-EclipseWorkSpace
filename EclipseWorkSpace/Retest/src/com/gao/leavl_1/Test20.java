@@ -2,12 +2,12 @@ package com.gao.leavl_1;
 
 public class Test20 {
 	public static void main(String[] args) {
-		int [] arr = {5,3,7,1,9};
+		int [] arr = {5,8,4,1,2,3,6};
 		//bubbleSort(arr);
 		//selectSort(arr);
-		QSort(arr);
-		print(arr);
-		System.out.println(binarySerch(arr, 1));
+		//QSort(arr);
+		//print(arr);
+		System.out.println(binarySerch(arr, 5));
 	}
 	public static int binarySerch(int [] arr, int target){
 		int left = 0;

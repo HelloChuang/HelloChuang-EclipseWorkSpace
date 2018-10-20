@@ -1,0 +1,69 @@
+package com.gao.test5;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+@SuppressWarnings("all")
+public class Server {
+	
+	public static void main(String[] args) throws IOException {
+			Map<FutureTask<Result>,Boolean> map = new TreeMap<>();
+
+			//此时已经启动了一个服务器  并把端口设定为12345
+			ServerSocket server = new ServerSocket(12345);
+			while(true){
+				//监听本机的12345端口  一旦socket连接  就会结束阻塞状态
+				//结束阻塞时 会得到一个socket对象  我们可以用socket对象 来与客户端进行通信
+				Socket socket = server.accept();  
+				
+				Callable call = new ThreadServer(socket);
+				FutureTask<Result> task = new FutureTask<Result>(call);
+				new Thread(task).start();
+				
+				
+				
+			}
+			
+	}
+	
+class Log4Me implements Runnable{
+	Map<FutureTask<Result>,Boolean> map  ;
+	public Log4Me(Map<FutureTask<Result>,Boolean> map){
+		this.map = map;
+	}
+	@Override
+	public void run() {
+		Set<Entry<FutureTask<Result>,Boolean>> entrys = map.entrySet();
+		for(Entry<FutureTask<Result>,Boolean> entry : entrys){
+			Boolean value = entry.getValue();
+			FutureTask<Result> key = entry.getKey();
+			if(value == false){
+				try {
+					key.get(50, TimeUnit.SECONDS);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ExecutionException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (TimeoutException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+}
+}
+
+
+

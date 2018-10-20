@@ -1,0 +1,26 @@
+package com.gao.test2;
+
+public class Test_MyString {
+	public static void main(String[] args) {
+		MyString s1 = new MyString("abcde");
+		MyString s2 = new MyString("fghij");
+		MyString s3 = new MyString("abcde");
+		MyString s4 = new MyString("cd");
+		
+		
+		System.out.println(s1.length());
+		System.out.println(s1.equals(s2));
+		System.out.println(s1.equals(s3));
+		
+		System.out.println(s1.charAt(0)); 
+		
+		
+		MyString.printArray(s1.concat(s2));
+		
+		System.out.println(s1.contains(s4));
+		System.out.println(s1.contains(s2));
+		
+		
+		
+	}
+}

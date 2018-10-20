@@ -1,0 +1,132 @@
+package com.gao.test5;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+import com.hainiu.thread.Result;
+
+
+@SuppressWarnings("all")
+public class Server {
+	
+	public static void main(String[] args) throws IOException {
+		
+			ServerSocket server = null;
+			try{
+				//此时已经启动了一个服务器  并把端口设定为12345
+				server = new ServerSocket(12345);
+			
+				Map<FutureTask<Result>,Boolean> map = new HashMap<>();
+				
+				Runn runn = new Runn(map);
+				Thread thread = new Thread(runn,"日志线程");
+				thread.setDaemon(true);    //将这种输出log的线程设置为守护线程
+				thread.start();
+				
+				
+				
+ 
+				
+				
+				while(true){
+					//监听本机的12345端口  一旦socket连接  就会结束阻塞状态
+					//结束阻塞时 会得到一个socket对象  我们可以用socket对象 来与客户端进行通信
+					Socket socket = server.accept();  
+					
+					Callable<Result> call = new ThreadServer(socket);
+					FutureTask<Result> task = new FutureTask<>(call);
+					new Thread(task,"服务线程").start();
+					try {
+						Result result = task.get();
+						System.out.println(result);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					} catch (ExecutionException e) {
+						e.printStackTrace();
+					}
+					map.put(task, false);
+					
+				}
+				
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+			
+	}
+	
+
+}
+//class Log4Me implements Runnable{
+//	Map<FutureTask<Result>,Boolean> map  ;
+//	public Log4Me(Map<FutureTask<Result>,Boolean> map){
+//		this.map = map;
+//	}
+//	@Override
+//	public void run() {
+//		Set<Entry<FutureTask<Result>,Boolean>> entrys = map.entrySet();//Map的foreach遍历
+//		for(Entry<FutureTask<Result>,Boolean> entry : entrys){
+//			
+//			Boolean value = entry.getValue();
+//			FutureTask<Result> key = entry.getKey();
+//			if(value == false){
+//				try {
+//					Result result = key.get(50,TimeUnit.SECONDS);//拿线程返回值的阻塞方法,产生阻塞50s拿到结果就返回结果
+//					System.out.println(result);						//拿不到就返回null
+//				} catch(Exception e){
+//					System.out.println("异常");
+//				}
+//				map.put(key, true);
+//			}
+//		}
+//		try {
+//			Thread.sleep(20000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//}
+
+class Runn implements Runnable{
+	Map<FutureTask<Result> , Boolean> map;
+	public Runn(Map<FutureTask<Result> , Boolean> map) {
+		this.map = map;
+	}
+	@Override
+	public void run() {
+		while( true ){
+			Set<Entry<FutureTask<Result>, Boolean>> entrys = map.entrySet();
+			for( Entry<FutureTask<Result>, Boolean> entry : entrys ){
+				FutureTask<Result> key = entry.getKey();
+				Boolean value = entry.getValue();
+				if( value == false){
+					// 记录信息
+					try {
+						Result result = key.get(50, TimeUnit.SECONDS);//拿线程返回值的阻塞方法,产生阻塞50s拿到结果就返回结果
+						// 写入到文件															//拿不到就返回null
+						System.out.println(result);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					map.put(key, true);
+				}
+			}
+			
+			try {
+				Thread.sleep(30000);   //每30s输出一次Map的信息
+			} catch (InterruptedException e) {
+			}
+		}
+	}
+}
+

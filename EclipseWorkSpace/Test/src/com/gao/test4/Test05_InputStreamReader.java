@@ -1,0 +1,61 @@
+package com.gao.test4;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintStream;
+
+/**
+ *转换流
+ *不用Scanner实现
+ *system.in     system.out
+ */
+public class Test05_InputStreamReader {
+	@SuppressWarnings("resource")
+	public static void main(String[] args) throws IOException  {
+		InputStream in = System.in;			
+//		InputStreamReader isr = new InputStreamReader(in); //把字节流转换为字符流
+//		BufferedReader br = new BufferedReader(isr);	
+		OutputStream out = System.out;
+//		OutputStreamWriter osw = new OutputStreamWriter(out); //把字符流转换为字节流
+//		BufferedWriter bw = new BufferedWriter(osw);
+		
+		int read = in.read();
+		out.write(read);    //不管是in还是out 都是字节层面的(读三个字节会组成一个中文字符)
+		
+		read = in.read();
+		out.write(read);
+		
+		read = in.read();
+		out.write(read);
+		out.flush();
+							//InputStreamReader  完成文件（byte）流解析为文本（char）流，按照编码解析
+							//OutputStreamWriter  提供文本（char） 流到文件（byte）流，按照编码处理.
+	
+
+			FileOutputStream osw21 = new FileOutputStream("f:\\xx.txt");
+			osw21.write('中');//  源码中说的是字符流通向字节流的桥梁：意思是write中可以放入字符,并转换成字节输出到xx.txt文件中
+			osw21.flush();		//所以这里的write会报错
+			
+			 OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("f:\\xx.txt"));
+			osw.write('中');
+			osw.flush();	
+							/*
+							 *  从jvm的角度看
+							 *  system.out变成字符输出流，jvm中的字符可以轻易写出
+								字符转向字节的桥梁，jvm的字符可以轻易写出
+								不管是字节输出流还是字符输出流，到本地或网络的时候都是字节，只是后者可以把jvm中的字符轻易写出，而不用做复杂的转化
+
+							 * 
+							 * 
+							 * */	
+		
+	}
+}

@@ -1,0 +1,43 @@
+package com.gao.test5;
+
+/**
+ *懒汉式
+ */
+public class Test01_SingleEG {
+	public static void main(String[] args) {
+		System.out.println(Single2.i);
+	}
+}
+/**
+ *懒汉式
+ *保证了只能创建一个对象
+ *但可能创建的时机过早,只是想调用i,但却连着把对象也创建了
+ */
+class Single1{
+	static int i = 0;
+	private static Single1 s1 = new Single1();
+	private Single1(){
+		System.out.println("我被构建了");
+	}
+	public static  Single1 getSingle1(){
+		return s1;
+	}
+}
+
+/**
+ *饿汉式
+ *保证了只能创建一个对象
+ *解决了对象可能创建的过早的问题
+ */
+class Single2{
+	static int i = 0;
+	private static Single2 s2 = null;
+	private Single2(){
+		System.out.println("我被构建了");
+	}
+	public static  Single2 getSingle1(){
+		if(s2==null)
+		s2 = new Single2();
+		return s2;
+	}
+}

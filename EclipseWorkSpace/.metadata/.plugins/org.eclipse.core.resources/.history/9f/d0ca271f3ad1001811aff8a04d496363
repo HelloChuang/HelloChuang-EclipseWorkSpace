@@ -1,0 +1,81 @@
+package com.gao.test5;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+@SuppressWarnings("all")
+public class TestClass {
+	public static void main(String[] args) throws Exception {
+		Class<?> clazz = new Person().getClass();
+		Constructor<?> constructor = clazz.getConstructor(String.class);
+		Object instance = constructor.newInstance("郜创");
+		System.out.println(instance);
+		
+		Method method = clazz.getMethod("delete", null);
+		method.invoke(method, null);
+	}
+}
+class Person{
+	private String name;
+	public static int age;
+	public Person() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Person(String name) {
+		super();
+		this.name = name;
+	}
+	
+	public void show(){
+		System.out.println("Person.show()");
+	}
+	public int add(){
+		return 5;
+	}
+	public static void delete(){
+		System.out.println("Person.delete()");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Person [name=" + name + "]";
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the age
+	 */
+	public static int getAge() {
+		return age;
+	}
+	/**
+	 * @param age the age to set
+	 */
+	public static void setAge(int age) {
+		Person.age = age;
+	}
+	
+}

@@ -1,0 +1,94 @@
+package com.hainiu.thread;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
+
+public class Server {
+	public static void main(String[] args) {
+		ServerSocket server = null;
+		try {
+			server = new ServerSocket(12345);
+			
+			// 存储所有的  FutureTask 对象
+			Map<FutureTask<Result> , Boolean> map = new HashMap<>();
+			
+			// 处理线程执行结果信息的 线程
+			Runn runn = new Runn(map);
+			Thread th = new Thread(runn);
+			th.setDaemon(true);
+			th.start();
+			
+			
+			
+			while( true ){
+				// 开启监听
+				Socket socket = server.accept();
+				
+				// 监听之后  多线程处理客户端的内容
+				
+				// 构建  线程服务的 线程对象
+				Callable<Result> thread = new ThreadServer(socket);
+				
+				// 包装成  Future(拿返回值)  Runnable(可以包装成Thread) 的对象
+				FutureTask<Result> task = new FutureTask<>(thread);
+				
+				// 开启线程给用户服务
+				new Thread(task).start();
+				
+				
+				map.put(task, false);
+			}
+			
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+
+class Runn implements Runnable{
+	Map<FutureTask<Result> , Boolean> map;
+	public Runn(Map<FutureTask<Result> , Boolean> map) {
+		this.map = map;
+	}
+	@Override
+	public void run() {
+		while( true ){
+			Set<Entry<FutureTask<Result>, Boolean>> entrys = map.entrySet();
+			for( Entry<FutureTask<Result>, Boolean> entry : entrys ){
+				FutureTask<Result> key = entry.getKey();
+				Boolean value = entry.getValue();
+				if( value == false){
+					// 记录信息
+					try {
+						Result result = key.get(50, TimeUnit.SECONDS);//拿线程返回值的阻塞方法,产生阻塞50s拿到结果就返回结果
+						// 写入到文件															//拿不到就返回null
+						System.out.println(result);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					map.put(key, true);
+				}
+			}
+			
+			try {
+				Thread.sleep(30000);   //每30s输出一次Map的信息
+			} catch (InterruptedException e) {
+			}
+		}
+	}
+}
+
+

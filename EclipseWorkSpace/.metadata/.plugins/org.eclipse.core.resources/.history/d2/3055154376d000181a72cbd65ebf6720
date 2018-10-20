@@ -1,0 +1,20 @@
+package com.gao.test5;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class Client {
+	@SuppressWarnings("resource")
+	public static void main(String[] args) throws UnknownHostException, IOException {
+		//一旦客户端与服务端取得连接  就会获得socket对象  可以用socket来与服务器进行通信
+		Socket socket = new Socket("192.168.31.44",12345);
+		
+		OutputStream os = socket.getOutputStream();
+		DataOutputStream dos = new DataOutputStream(os);
+		dos.writeUTF("我是客户端,我来跟你通信了");
+		
+	}
+}

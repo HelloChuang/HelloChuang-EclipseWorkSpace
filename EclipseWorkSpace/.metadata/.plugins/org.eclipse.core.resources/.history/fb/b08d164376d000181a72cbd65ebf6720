@@ -1,0 +1,32 @@
+package com.gao.test5;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+@SuppressWarnings("all")
+public class Server {
+	
+	public static void main(String[] args) throws IOException {
+		//此时已经启动了一个服务器  并把端口设定为12345
+			ServerSocket server = new ServerSocket(12345);
+			
+			//监听本机的12345端口  一旦socket连接  就会结束阻塞状态
+			//结束阻塞时 会得到一个socket对象  我们可以用socket对象 来与客户端进行通信
+			Socket socket = server.accept();  
+			
+			InputStream is = socket.getInputStream();
+			DataInputStream dis = new DataInputStream(is);
+			String str = dis.readUTF();
+			System.out.println(str);
+			
+		
+	}
+}
+
+
+

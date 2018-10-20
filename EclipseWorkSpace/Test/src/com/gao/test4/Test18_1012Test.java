@@ -1,0 +1,196 @@
+package com.gao.test4;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+
+/**
+ * @author XX
+ *3.异常的种类,概念特性
+ *已检查异常:是指在程序编译阶段发生的异常,如Exception
+ *未检查异常:是指在程序运行过程中发生的异常,如RuntimeException
+ *
+ *4.正则符号测试
+ *[]----对一个位置进行操作
+ *^-----取反操作
+ *\D----除了数字
+ *\s----除了换行符以外所有空字符串
+ *+-----匹配一个或多个
+ *{3,5}-至少匹配3次,最多匹配5次
+ *(.)\\1-----定义组(.),并捕获(.)
+ *|-----或
+ *
+ *
+ */
+@SuppressWarnings("all")
+public class Test18_1012Test {
+	
+	public static void main(String[] args) {
+		// map1,内部比较器,key的collection遍历
+		map1();
+		// map2,外部比较器,Entry的collection遍历
+		map2();
+		
+		//递归删除  未指定目录
+		//File file = new File("");
+		//deleteMethod(file);
+		
+		//文件拷贝
+		copyMethod();
+	}
+	public static void map1() {
+		TreeMap<Person, Integer> map1 = new TreeMap<>();
+		Person p1 = new Person(18, "郜创");
+		Person p2 = new Person(15, "郜创新");
+		Person p3 = new Person(1, "郜");
+		Person p4 = new Person(19, "创新");
+		Person p5 = new Person(14, "创");
+		map1.put(p1, 666);
+		map1.put(p2, 999);
+		map1.put(p3, 777);
+		map1.put(p4, 555);
+		map1.put(p5, 111);
+
+		Set<Person> keySet = map1.keySet();
+		Iterator<Person> it1 = keySet.iterator();
+		while (it1.hasNext()) {
+			Person next = it1.next();
+			Integer integer = map1.get(next);
+			System.out.println("name:" + next.getName() + "		age:" + next.getAge() + "		value:" + integer);
+		}
+		System.out.println();
+	}
+
+	public static void map2() {
+		TreeMap<Person, Integer> map2 = new TreeMap<>(new Comparator<Person>() {
+
+			@Override
+			public int compare(Person o1, Person o2) {
+				int result = o1.getAge() - o2.getAge();
+				if (result == 0) {
+					return result = o1.getName().compareTo(o2.getName());
+				}
+				return result;
+			}
+
+		});
+		Person pp1 = new Person(18, "郜创");
+		Person pp2 = new Person(15, "郜创新");
+		Person pp3 = new Person(1, "郜");
+		Person pp4 = new Person(19, "创新");
+		Person pp5 = new Person(14, "创");
+		map2.put(pp1, 666);
+		map2.put(pp2, 999);
+		map2.put(pp3, 777);
+		map2.put(pp4, 555);
+		map2.put(pp5, 111);
+
+		Set<Entry<Person, Integer>> entrySet = map2.entrySet();
+		Iterator<Entry<Person, Integer>> it2 = entrySet.iterator();
+		while (it2.hasNext()) {
+			Entry<Person, Integer> next = it2.next();
+			System.out.println(
+					"name:" + next.getKey().getName() +
+					"		age:" + next.getKey().getAge() + "		value:" + next.getValue());
+		}
+		System.out.println();
+	}
+
+	public static void deleteMethod(File file){
+		
+		while(file.isDirectory()){
+			deleteMethod(file);
+		}
+		file.delete();
+	}
+	public static void copyMethod(){
+		File file = new File("d:\\test.txt");
+		File targetFile = new File("f:\\test.txt");
+		FileInputStream fis = null;
+		FileOutputStream fos = null;
+		FileOutputStream init = null;
+		try {
+		    fos = new FileOutputStream(targetFile);
+		    init = new FileOutputStream(file);
+			fis = new FileInputStream(file);
+			
+			fos.write('a');
+			int read = fis.read();
+			while(read!=-1){
+				fos.write(read);
+				fis.read();
+			}
+			System.out.println("copy success!!");
+			
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+}
+
+class Person implements Comparable<Person> {
+	private int age;
+	private String name;
+
+	public Person() {
+		super();
+	}
+
+	public Person(int age, String name) {
+		super();
+		this.age = age;
+		this.name = name;
+	}
+
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+
+	/**
+	 * @param age
+	 *            the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public int compareTo(Person o) {
+		int result = this.name.compareTo(o.name);
+		if (result == 0) {
+			return result = this.age - o.age;
+		}
+		return result;
+	}
+
+}

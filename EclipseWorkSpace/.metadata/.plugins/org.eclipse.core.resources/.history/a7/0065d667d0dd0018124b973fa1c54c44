@@ -1,0 +1,7 @@
+package com.gao.dao;
+
+import com.gao.entity.UserInfo;
+
+public interface UserDAO {
+	public int insert(UserInfo user) throws Exception;
+}

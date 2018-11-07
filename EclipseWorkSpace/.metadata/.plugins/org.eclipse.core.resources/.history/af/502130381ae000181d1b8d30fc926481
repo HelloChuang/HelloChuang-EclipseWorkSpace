@@ -1,0 +1,40 @@
+package com.gao.dao.impl;
+
+import java.util.List;
+
+import com.gao.dao.UserDAO;
+import com.gao.entity.UserInfo;
+
+public class UserDAOImpl implements UserDAO {
+
+	public int insert(UserInfo user) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int update(UserInfo user) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int delete(UserInfo user) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int findUserPageCount() throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public List<UserInfo> findUserPageList(Integer start, Integer size) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public UserInfo findUserByID(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

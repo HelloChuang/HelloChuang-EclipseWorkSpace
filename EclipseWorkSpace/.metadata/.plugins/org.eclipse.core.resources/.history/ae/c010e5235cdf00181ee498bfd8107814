@@ -1,0 +1,16 @@
+package com.gao.entity;
+
+import java.util.Date;
+
+public class Student {
+	private Integer sid;
+	private	String sname;
+	private Integer sex;
+	private	Date birthday;
+//	private	Integer examnum;
+//	private	Integer scid;
+//	private String scname;
+//	private Integer aid;
+//	private String aname;
+	
+}

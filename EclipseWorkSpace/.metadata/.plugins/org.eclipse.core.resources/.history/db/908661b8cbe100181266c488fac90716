@@ -1,0 +1,40 @@
+package com.gao.service.impl;
+
+import java.util.List;
+
+import com.gao.entity.UserInfo;
+import com.gao.service.UserService;
+
+public class UserServiceImpl implements UserService {
+
+	public int insert(UserInfo user) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int update(UserInfo user) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int delete(UserInfo user) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int findCount() throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public UserInfo findUserByID(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<UserInfo> findUserByPageList(Integer pageIndex, Integer pageSize) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,52 @@
+package com.gao.dao.impl;
+
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+
+import com.gao.dao.UserDAO;
+import com.gao.entity.UserInfo;
+
+public class UserDAOImpl implements UserDAO {
+	private QueryRunner qr;
+	public void setQr(QueryRunner qr){
+		this.qr = qr;
+	}
+	@Override
+	public int insert(UserInfo user) throws Exception {
+		
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int update(UserInfo user) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(UserInfo user) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int findUserCount() throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<UserInfo> findUserByPageList(Integer start, Integer size) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserInfo findUserByID(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,59 @@
+package com.gao.dao.impl;
+
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.gao.dao.UserDAO;
+import com.gao.entity.UserInfo;
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+@Repository
+public class UserDAOImpl implements UserDAO {
+	@Autowired
+	private QueryRunner qr;
+	
+	@Override
+	public int insert(UserInfo user) throws Exception {
+		String sql = "insert into user_info values(null,?,?,?)";
+		Object[] params = {user.getUname(),user.getUdate(),user.getUmoney()};
+		int count = qr.update(sql,params);
+		return count;
+	}
+
+	@Override
+	public int update(UserInfo user) throws Exception {
+		String sql = "update user_info set `uname`=?,`udate`=?,`umoney`=? where `uid`=?";
+		Object[] params = {user.getUname(),user.getUdate(),user.getUmoney(),user.getUid()};
+		int count = qr.update(sql,params);
+		return count;
+	}
+
+	@Override
+	public int delete(UserInfo user) throws Exception {
+		String sql = "delete from user_info where `uid`=?";
+		Object[] params = {user.getUid()};
+		int count = qr.update(sql,params);
+		return count;
+	}
+
+	@Override
+	public int findUserCount() throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<UserInfo> findUserByPageList(Integer start, Integer size) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserInfo findUserByID(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

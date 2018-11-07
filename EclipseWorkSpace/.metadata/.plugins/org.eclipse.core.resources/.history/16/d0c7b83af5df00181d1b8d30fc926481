@@ -1,0 +1,55 @@
+package com.gao.web;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.gao.entity.Student;
+import com.gao.service.StuService;
+
+@Controller
+@Scope("prototype")
+public class StuViewAction {
+	@Autowired
+	StuService service ;
+	
+	public ModelAndView findStuByID(Integer id)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		Student stu = service.findStuByID(id);
+		mv.addObject("sid", stu.getSid());
+		mv.addObject("sname", stu.getSname());
+		mv.addObject("sex", stu.getSex());
+		mv.addObject("birth", stu.getBirth());
+		mv.setViewName("forward:/stu_update.jsp");
+		return mv;
+	}
+	
+	
+	@RequestMapping("/findStudentsByPage")
+	public ModelAndView findStudentsByPage(Integer pageIndex) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		Integer pageSize = 10;
+		Integer totalCount = 0;
+		Integer totalPage = 0;
+		totalCount = service.findStuByPageCount();
+		totalPage = totalCount%pageSize==0?totalCount/pageSize:totalCount/pageSize+1;
+		List<Student> list = service.findStuByPageList(pageIndex, pageSize );
+		mv.addObject("list",list);
+		mv.addObject("pageSize",pageSize);
+		mv.addObject("totalCount",totalCount);
+		mv.addObject("totalPage",totalPage);
+		mv.addObject("pageIndex",pageIndex);
+		mv.setViewName("forward:/showList.jsp");
+		return mv;
+	}
+	
+}

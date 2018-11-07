@@ -1,0 +1,20 @@
+<%@page import="org.apache.commons.dbutils.QueryRunner"%>
+<%@page import="com.gao.jsp.JdbcUtil"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+
+Connection conn = JdbcUtil.getConnection();
+String sql = "insert into person(`name`,`sex`,`age`,`from`)values(?,?,?,?)";
+String name = request.getParameter("name");
+String sex = request.getParameter("sex");
+String age = request.getParameter("age");
+String from = request.getParameter("from");
+Object [] params = {name,sex,age,from};
+QueryRunner qr = new QueryRunner();
+int count = qr.update(conn, sql,params);
+String msg = count>0?"添加成功":"添加失败";
+out.print(msg);
+JdbcUtil.closeAll(conn);
+%>

@@ -1,0 +1,17 @@
+package com.gao.test;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.gao.dao.UserDAO;
+import com.gao.dao.impl.UserDAOImpl;
+
+public class Test {
+	private static ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	private static UserDAO userDao = context.getBean(UserDAO.class);
+	
+	//private UserDAO userDao2 = new UserDAOImpl();
+	public static void main(String[] args) {
+		System.out.println(userDao);
+	}
+}

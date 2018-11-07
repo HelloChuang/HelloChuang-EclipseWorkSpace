@@ -1,0 +1,75 @@
+package com.gao.entity;
+
+import java.util.Date;
+
+public class Student {
+	private Integer sid;
+	private	String sname;
+	private Integer sex;
+	private	Date birthday;
+//	private	Integer examnum;
+//	private	Integer scid;
+//	private String scname;
+//	private Integer aid;
+//	private String aname;
+	/**
+	 * @return the sid
+	 */
+	public Integer getSid() {
+		return sid;
+	}
+	/**
+	 * @param sid the sid to set
+	 */
+	public void setSid(Integer sid) {
+		this.sid = sid;
+	}
+	/**
+	 * @return the sname
+	 */
+	public String getSname() {
+		return sname;
+	}
+	/**
+	 * @param sname the sname to set
+	 */
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
+	/**
+	 * @return the sex
+	 */
+	public Integer getSex() {
+		return sex;
+	}
+	/**
+	 * @param sex the sex to set
+	 */
+	public void setSex(Integer sex) {
+		this.sex = sex;
+	}
+	/**
+	 * @return the birthday
+	 */
+	public Date getBirthday() {
+		return birthday;
+	}
+	/**
+	 * @param birthday the birthday to set
+	 */
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+	/**   
+	 * Title: toString   
+	 * Description:   
+	 * @return   
+	 * @see java.lang.Object#toString()   
+	 */  
+	@Override
+	public String toString() {
+		return "Student [sid=" + sid + ", sname=" + sname + ", sex=" + sex + ", birthday=" + birthday + "]";
+	}
+	
+	
+}

@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\XX\Desktop\2018年10月27日\person_model1_tp2"/>
+	</list>
 	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="G:\苏牛\13-项目实战开始\课堂代码\当堂代码\sys_sm"/>
+			<item value="G:\苏牛\12-实战-SSD一张表-SSD多表预\课堂代码\sys_sm"/>
+			<item value="G:\苏牛\12-实战-SSD一张表-SSD多表预\课堂代码\sys_am"/>
+			<item value="G:\苏牛\11-Spring-SpringMVC\课堂代码\spring_class2_tp1"/>
+			<item value="G:\苏牛\11-Spring-SpringMVC\课堂代码\spring_class2_tp2"/>
+			<item value="C:\Users\XX\Desktop\课堂代码\usermanager"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
 	</section>
 	<section name="ResourceNavigator">
 		<item value="Aggregate for window 1532097968134" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
@@ -13,5 +30,19 @@
 	<section name="ChooseWorkspaceDialogSettings">
 		<item value="600" key="DIALOG_X_ORIGIN"/>
 		<item value="274" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
+		<item value="false" key="FilterByLocation"/>
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode/&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
+		<item value="false" key="ShowDerived"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="669" key="DIALOG_X_ORIGIN"/>
+			<item value="191" key="DIALOG_Y_ORIGIN"/>
+		</section>
 	</section>
 </section>

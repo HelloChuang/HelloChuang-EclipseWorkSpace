@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<script type="text/javascript" href="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" href="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<title>添加人员</title>
+</head>
+<body>
+		<form action="userAdd" method="post" class="col-xs-12">
+			<table class="table table-hover">
+				<tr class="warning" align="center"><td><h1>添加人员信息</h1></td></tr>
+				<tr class="success">
+				<td>请输入姓名:<input class="form-control" type="text" name="uname" required placeholder="请输入姓名..."/></td>
+				</tr>
+				<tr class="success">
+				<td>请输入入会时间:<input class="form-control"type="date" name="uname" required placeholder="请输入入会时间..."/></td>
+				</tr>
+				<tr class="success">
+				<td>请输入会费:<input class="form-control"type="number" name="uname" required placeholder="请输入会费..."/></td>
+				</tr>
+				<tr align="center">
+					<td>
+					<button type="submit"class="btn btn-success">确定</button>
+					<button class="btn btn-default" type="reset" onclick="javascript:history.go(-1)">取消</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+</body>
+</html>

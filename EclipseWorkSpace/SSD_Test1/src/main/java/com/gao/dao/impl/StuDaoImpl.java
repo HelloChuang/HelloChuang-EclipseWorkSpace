@@ -1,0 +1,63 @@
+package com.gao.dao.impl;
+
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+
+import com.gao.dao.StuDAO;
+import com.gao.entity.Student;
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+@Repository
+@Scope("prototype")
+public class StuDaoImpl implements StuDAO {
+	@Autowired
+	private QueryRunner qr;
+	public int insert(Student stu) throws Exception {
+		String sql = "insert into student(`s_name`,`s_sex`,`s_birthday`) values(?,?,?)";
+		Object [] params = {stu.getSname(),stu.getSex(),stu.getBirth()};
+		int count = qr.update(sql,params);
+		return count;
+	}
+
+	public int update(Student stu) throws Exception {
+		String sql = "update student set `s_name`=?,`s_sex`=?,`s_birthday`=? where `s_id`=?";
+		Object [] params = {stu.getSname(),stu.getSex(),stu.getBirth(),stu.getSid()};
+		int count = qr.update(sql,params);
+		return count;
+	}
+
+	public int delete(Student stu) throws Exception {
+		String sql = "delete from student where `s_id`=?";
+		Object [] params = {stu.getSid()};
+		int count = qr.update(sql,params);
+		return count;
+	}
+
+	public int findStuByPageCount() throws Exception {
+		String sql = "select count(*) from test";
+		Number number = qr.query(sql, new ScalarHandler<Number>(1));
+		int value = number.intValue();
+		return value;
+	}
+
+	public List<Student> findStuByPageList(Integer start, Integer size) throws Exception {
+		String sql = "select * from test limit ?,?";
+		Object [] params = {start,size};
+		List<Student> list = qr.query(sql, new BeanListHandler<Student>(Student.class),params);
+		return list;
+	}
+
+	public Student findStuByID(Integer id) throws Exception {
+		String sql = "select * from test where sid=?";
+		Object [] params = {id};
+		Student s = qr.query(sql, new BeanHandler<Student>(Student.class),params);
+		return s;
+	}
+
+}

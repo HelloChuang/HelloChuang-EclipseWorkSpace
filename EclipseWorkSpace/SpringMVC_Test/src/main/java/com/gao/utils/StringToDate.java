@@ -1,0 +1,26 @@
+package com.gao.utils;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.springframework.core.convert.converter.Converter;
+
+public class StringToDate implements Converter<String, Date> {
+
+	// 2018-11-02
+	public Date convert(String arg0) {
+		// 创建方法的返回值
+		Date date = null;
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			date = df.parse(arg0);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		// 返回
+		return date;
+	}
+
+}

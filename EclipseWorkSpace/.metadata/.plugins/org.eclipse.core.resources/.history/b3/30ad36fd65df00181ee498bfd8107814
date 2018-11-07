@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>SSD_Test1</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+   <!-- contextConfigLocation 用来加载spring配置文件 -->
+  <!-- 
+  	在WEB.XML中配置Spring的监听器 
+  	spring的对象创建监听器配置到这里
+  	web程序运行期间创建对象的管理器 ContextLoaderListener 用它来动态的创建对象
+  	因为我们也不知道什么时候需要创建什么对象所以就得老看着 监听
+  	ApplicationContext context = new ClasspathXMLApplcaitonContext("applicationContext.xml");
+  -->
+   <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <!-- 中文字符过滤器 -->
+  <filter>
+  	<filter-name>encodingFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<!-- 指定这个过滤器用什么编码过滤 -->
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  </filter>
+	
+  <filter-mapping>
+  	<filter-name>encodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>	
+  <!-- 配置SpringMVC用来拦截页面请求的Servlet -->
+  <!-- 主要用于配置Servlet类 -->
+  <servlet>
+  	<servlet-name>springmvcds</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<!-- 加载SpringMVC的配置文件 -->
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:spring-mvc.xml</param-value>
+  	</init-param>
+  </servlet>
+  <!-- 主要用于配置Servlet映射规则 -->
+  <servlet-mapping>
+  	<servlet-name>springmvcds</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+</web-app>

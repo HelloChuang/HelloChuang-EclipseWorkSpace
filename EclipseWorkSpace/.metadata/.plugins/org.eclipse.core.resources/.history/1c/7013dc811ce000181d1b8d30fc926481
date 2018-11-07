@@ -1,0 +1,9 @@
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.gao.service.UserService;
+
+public class Test1 {
+	ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	UserService us = context.getBean(UserService.class);
+}

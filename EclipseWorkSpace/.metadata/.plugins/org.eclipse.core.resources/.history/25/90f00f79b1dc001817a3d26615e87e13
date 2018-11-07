@@ -1,0 +1,10 @@
+package com.gao.utils;
+
+public class JdbcUtil {
+	private static final String CONN_DRIVE = "com.mysql.jdbc.Driver";
+	private static final String CONN_URL = "jdbc:mysql://127.0.0.1:3306/userdb3?characterEncoding=UTF-8";
+	private static final String CONN_USER = "root";
+	private static final String CONN_PSWD = "root";
+	
+	private static com
+}

@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+<typeInfo handle="=Servlet/src&lt;com.gao.dao{UserInfoDAO.java[UserInfoDAO" modifiers="513" timestamp="1540871438614"/>
+<typeInfo handle="=Servlet/src&lt;com.gao.service{UserService.java[UserService" modifiers="513" timestamp="1540884731412"/>
+<typeInfo handle="=RetestServlet/src&lt;com.gao.dao{UserInfoDao.java[UserInfoDao" modifiers="513" timestamp="1540895630673"/>
+<typeInfo handle="=RetestServlet/src&lt;com.gao.service{UserInfoService.java[UserInfoService" modifiers="513" timestamp="1540896404894"/>
+<typeInfo handle="=RetestServlet2/src&lt;com.gao.dao.impl{UserInfoDAO.java[UserInfoDAO" modifiers="513" timestamp="1540951937786"/>
+<typeInfo handle="=RetestServlet2/src&lt;com.gao.service.impl{UserService.java[UserService" modifiers="513" timestamp="1540952756395"/>
+<typeInfo handle="=SpringMVC_Test/src\/main\/java&lt;com.gao.dao{UserDAO.java[UserDAO" modifiers="513" timestamp="1541165450135"/>
+<typeInfo handle="=SpringMVC_Test/src\/main\/java&lt;com.gao.service{UserService.java[UserService" modifiers="513" timestamp="1541167543274"/>
+<typeInfo handle="=SpringMVC_Test/I:\/JRE\/lib\/rt.jar&lt;java.nio.file.attribute(UserPrincipal.class[UserPrincipal" modifiers="1537" timestamp="1538663708872"/>
+<typeInfo handle="=SSD_Test1/src\/main\/java&lt;com.gao.dao{StuDAO.java[StuDAO" modifiers="513" timestamp="1541245976351"/>
+<typeInfo handle="=SSD_Test1/src\/main\/java&lt;com.gao.service{StuService.java[StuService" modifiers="513" timestamp="1541246055083"/>
+<typeInfo handle="=SSD_Test1/I:\/JRE\/lib\/rt.jar&lt;javax.rmi.CORBA(StubDelegate.class[StubDelegate" modifiers="1537" timestamp="1538663708872"/>
+<typeInfo handle="=RetestSpringMVC_1/src\/main\/java&lt;com.gao.dao{UserDAO.java[UserDAO" modifiers="513" timestamp="1541326314795"/>
+<typeInfo handle="=RetestSpringMVC_1/src\/main\/java&lt;com.gao.service{UserService.java[UserService" modifiers="513" timestamp="1541327061446"/>
+<typeInfo handle="=SpringMVCFight/src\/main\/java&lt;com.gao.dao{StuDAO.java[StuDAO" modifiers="513" timestamp="1541415072349"/>
+<typeInfo handle="=SpringMVCFight/src\/main\/java&lt;com.gao.service{StuService.java[StuService" modifiers="513" timestamp="1541415792923"/>
+<typeInfo handle="=JustTest/src\/main\/java&lt;com.gao.dao{UserDAO.java[UserDAO" modifiers="513" timestamp="1541511823200"/>
+<typeInfo handle="=JustTest/src\/main\/java&lt;com.gao.service{UserService.java[UserService" modifiers="513" timestamp="1541511873096"/>
+</typeInfoHistroy>

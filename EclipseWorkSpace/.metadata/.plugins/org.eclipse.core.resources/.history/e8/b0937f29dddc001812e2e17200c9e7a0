@@ -1,0 +1,71 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<script type="text/javascript"  href="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
+<script type="text/javascript"  href="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<title>更新信息</title>
+</head>
+<body>
+<form action="UpdateUserAction">
+	<input type="hidden" name="uuid" value="${user.uid}"/>
+	姓名:<input type="text" value="${user.uname}"name="uuname" required="required" /><br/>
+	时间:<input type="date" value="${user.udate}"name="uudate" required="required" /><br/>
+	会费:<input type="number" value="${user.umoney}"name="uumoney" required="required" /><br/>
+	<button type="submit">确定</button><button type="reset">取消</button>
+</form>
+
+
+ <form class="form-horizontal" action="UpdateUserAction">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">人员添加</legend>
+      </div>
+    <div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">姓名:</label>
+          <div class="controls">
+          <input type="hidden" name="uuid" value="${user.uid}"/>
+            <input type="text" value="${user.uname}"name="uuname" required="required"  class="input-xlarge">
+            <p class="help-block"></p>
+          </div>
+        </div><div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">时间:</label>
+          <div class="controls">
+            <input type="date"  type="date" value="${user.udate}"name="uudate" required="required"  class="input-xlarge">
+            <p class="help-block"></p>
+          </div>
+        </div><div class="control-group">
+
+          <!-- Text input-->
+          <label class="control-label" for="input01">会费:</label>
+          <div class="controls">
+            <input type="text" type="number" value="${user.umoney}"name="uumoney" required="required" class="input-xlarge">
+            <p class="help-block"></p>
+          </div>
+        </div>
+
+    <div class="control-group">
+          <label class="control-label"></label>
+
+          <!-- Button -->
+          <div class="controls">
+            <button class="btn btn-success" type="submit" >确定</button>
+             <button class="btn btn-default" type="reset">取消</button>
+          </div>
+        </div>
+
+    
+
+    </fieldset>
+  </form>
+
+</body>
+</html>

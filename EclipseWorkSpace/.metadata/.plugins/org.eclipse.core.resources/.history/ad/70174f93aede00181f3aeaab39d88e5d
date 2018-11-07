@@ -1,0 +1,11 @@
+package com.gao.web;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class ServalAction {
+	public String method1(Integer uid){
+		System.out.println(uid);
+		return "forward:/show.jsp";
+	}
+}

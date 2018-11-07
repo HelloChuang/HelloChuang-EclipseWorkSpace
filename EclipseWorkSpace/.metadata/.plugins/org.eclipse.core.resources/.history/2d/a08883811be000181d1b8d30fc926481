@@ -1,0 +1,43 @@
+package com.gao.service.impl;
+
+import java.util.List;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+import com.gao.entity.UserInfo;
+import com.gao.service.UserService;
+@Service
+@Scope("prototype")
+public class UserServiceImpl implements UserService {
+
+	public int insert(UserInfo user) throws Exception {
+		return 0;
+	}
+
+	public int update(UserInfo user) throws Exception {
+		return 0;
+	}
+
+	public int delete(UserInfo user) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int findUserPageCount() throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public List<UserInfo> findUserPageList(Integer start, Integer size) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public UserInfo findUserByID(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

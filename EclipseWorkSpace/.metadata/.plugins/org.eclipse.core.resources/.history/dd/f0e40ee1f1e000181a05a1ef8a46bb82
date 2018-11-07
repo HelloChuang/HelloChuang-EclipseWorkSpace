@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>学生信息管理与分析系统</title>
+<!-- 引入CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- 引入JS -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+</head>
+<body>
+	<form action="stuAdd" method="post">
+		<table class="table table-hover">
+				<tr class="sucess"><td><input type="text" name="sname" required placeholder="请输入姓名..."/></td></tr>
+				<tr class="sucess"><td>
+				<select name="sex">
+				<option >---请选择---</option>
+				<option value="1">男</option>
+				<option value="0">女</option>
+				</select>
+				
+				</td></tr>
+				<tr class="sucess"><td><input type="text" name="examnum" required placeholder="请输入姓名..."/></td></tr>
+				
+				
+				<tr class="sucess">
+				<td>
+				<select name="aname">
+				</select>
+				</td>
+				
+				<td>
+				<select name="scname">
+				</select>
+				</td>
+				
+				</tr>
+				
+				
+				
+				<tr class="sucess"><td><input type="text" name="sname" required placeholder="请输入姓名..."/></td></tr>
+				<tr class="sucess"><td><input type="text" name="sname" required placeholder="请输入姓名..."/></td></tr>
+				<tr class="sucess"><td><input type="text" name="sname" required placeholder="请输入姓名..."/></td></tr>
+				<tr class="sucess"><td><input type="text" name="sname" required placeholder="请输入姓名..."/></td></tr>
+				
+			
+		</table>
+	</form>
+</body>
+</html>

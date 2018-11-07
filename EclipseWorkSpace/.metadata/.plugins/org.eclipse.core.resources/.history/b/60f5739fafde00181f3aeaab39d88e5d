@@ -1,0 +1,20 @@
+package com.gao.web;
+
+import java.util.Date;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class ServalAction {
+	@RequestMapping("method1")
+	public String method1(Integer uid,String uname){
+		System.out.println(uid+uname);
+		return "forward:/show.jsp";
+	}
+	@RequestMapping("method2")
+	public String method1(Integer uid,String uname,Date udate,Double umoney){
+		System.out.println(uid+uname);
+		return "forward:/show.jsp";
+	}
+}

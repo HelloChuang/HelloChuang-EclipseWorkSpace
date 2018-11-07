@@ -1,0 +1,21 @@
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.gao.entity.UserInfo;
+import com.gao.service.UserService;
+
+public class Test1 {
+	ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	UserService us = context.getBean(UserService.class);
+	public static void main(String[] args) throws Exception{
+		Test1 t = new Test1();
+		t.insert();
+	}
+	@Test
+	public void insert()throws Exception{
+		UserInfo user = new UserInfo();
+		user.setUname("jiji");
+		us.insert(user);
+	}
+}

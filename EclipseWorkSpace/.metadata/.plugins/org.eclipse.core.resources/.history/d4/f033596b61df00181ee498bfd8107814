@@ -1,0 +1,15 @@
+import java.util.Date;
+
+import org.junit.Test;
+
+import com.gao.entity.Student;
+
+public class Test1 {
+	@Test
+	public void insert(){
+		Student s = new Student();
+		s.setSname("郜创");
+		s.setBirthday(new Date());
+		s.setSex(1);
+	}
+}

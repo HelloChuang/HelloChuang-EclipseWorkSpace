@@ -1,0 +1,48 @@
+package com.gao.dao.impl;
+
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+
+import com.gao.dao.StuDAO;
+import com.gao.entity.Student;
+@Repository
+@Scope("prototype")
+public class StuDAOImpl implements StuDAO {
+	@Autowired
+	private QueryRunner qr;
+	
+	public List<Student> findStuByPageList(Integer start, Integer size) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Integer findStuByPageListCount() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Student findStuByID(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int insert(Student stu) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int delete(Student stu) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int update(Student stu) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

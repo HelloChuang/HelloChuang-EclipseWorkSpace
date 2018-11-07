@@ -1,0 +1,29 @@
+package com.gao.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.gao.entity.MyList;
+import com.gao.entity.UserInfo;
+
+@Controller
+public class ServalAction {
+	@RequestMapping("method1")
+	public String method1(Integer uid,String uname){
+		System.out.println(uid+uname);
+		return "forward:/show.jsp";
+	}
+	@RequestMapping("method2")
+	public String method1(UserInfo user){
+		System.out.println(user);
+		return "forward:/show.jsp";
+	}
+	@RequestMapping("method3")
+	public String method3(MyList list){
+		for (UserInfo user : list.getList()) {
+			System.out.println(user);
+		}
+		return "forward:/show.jsp";
+	}
+}

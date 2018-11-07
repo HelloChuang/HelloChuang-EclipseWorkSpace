@@ -1,0 +1,30 @@
+package com.gao.web;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.gao.entity.Student;
+import com.gao.service.StuService;
+
+@Controller
+@Scope("prototype")
+public class StuViewAction {
+	@Autowired
+	StuService service ;
+	
+	@RequestMapping("/findAccountsByPage")
+	public ModelAndView findAccountsByPage(Integer pageIndex) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		Integer pageSize = 10;
+		List<Student> list = service.findStuByPageList(pageIndex, pageSize );
+		for (Student student : list) {
+			System.out.println(student);
+		}
+		return mv;
+	}
+}

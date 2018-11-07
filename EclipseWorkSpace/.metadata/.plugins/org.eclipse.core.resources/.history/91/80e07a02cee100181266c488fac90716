@@ -1,0 +1,63 @@
+package com.gao.dao.impl;
+
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+
+import com.gao.dao.UserDAO;
+import com.gao.entity.UserInfo;
+@Repository
+@Scope("prototype")
+public class UserDAOImpl implements UserDAO {
+	@Autowired
+	private QueryRunner qr;
+
+	public int insert(UserInfo user) throws Exception {
+		String sql = "insert into user_info values(null,?,?,?)";
+		Object[] params = {user.getUname(),user.getUdate(),user.getUmoney()};
+		int count = qr.update(sql,params);
+		return count;
+	}
+
+	public int update(UserInfo user) throws Exception {
+		String sql = "update user_info set ,uname=?,udate=?,umoney=? where uid=?";
+		Object[] params = {user.getUname(),user.getUdate(),user.getUmoney(),user.getUid()};
+		int count = qr.update(sql,params);
+		return count;
+	}
+
+	public int delete(UserInfo user) throws Exception {
+		String sql = "delete from user_info where uid=?";
+		Object[] params = {user.getUid()};
+		int count = qr.update(sql,params);
+		return count;
+	}
+
+	public int findCount() throws Exception {
+		String sql = "select count(*) from student";
+		Number number = qr.query(sql, new ScalarHandler<Number>(1));
+		int value = number.intValue();
+		return value;
+	}
+
+	public UserInfo findUserByID(Integer id) throws Exception {
+		String sql = "select * from student where uid = ?";
+		Object[] params = {id};
+		UserInfo user = qr.query(sql, new BeanHandler<UserInfo>(UserInfo.class),params);
+		return user;
+	}
+
+	public List<UserInfo> findUserByPageList(Integer start, Integer size) throws Exception {
+		String sql = "select * from student limit ?,?";
+		Object[] params = {start,size};
+		List<UserInfo> list = qr.query(sql, new BeanListHandler<UserInfo>(UserInfo.class),params);
+		return list;
+	}
+
+}

@@ -1,0 +1,47 @@
+import java.util.Date;
+import java.util.List;
+
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.gao.entity.Student;
+import com.gao.service.StuService;
+
+public class Test1 {
+	ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	StuService service = context.getBean(StuService.class);
+	
+	public static void main(String[] args) throws Exception {
+		Test1 t = new Test1();
+		t.find();
+	}
+	@Test
+	public void find()throws Exception{
+		List<Student> list = service.findStuByPageList(0, 10);
+		int i = service.findStuByPageCount();
+		System.out.println(i);
+		for (Student student : list) {
+			System.out.println(student);
+		}
+	}
+	public void delete() throws Exception{
+		Student stu = service.findStuByID(39132);
+		int delete = service.delete(stu);
+		System.out.println(delete);
+	}
+	public void update() throws Exception{
+		Student stu = service.findStuByID(1);
+		stu.setSname("IG牛逼");
+		int count = service.update(stu);
+		System.out.println(count);
+	}
+	public void insert() throws Exception{
+		Student s = new Student();
+		s.setSname("郜创");
+		s.setBirthday(new Date());
+		s.setSex(1);
+		int i = service.insert(s);
+		System.out.println(i);
+	}
+}

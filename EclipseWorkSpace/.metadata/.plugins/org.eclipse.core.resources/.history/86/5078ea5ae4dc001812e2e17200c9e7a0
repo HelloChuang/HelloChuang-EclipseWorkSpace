@@ -1,0 +1,79 @@
+package com.gao.dao.impl;
+
+import java.sql.Connection;
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+
+import com.gao.entity.UserInfo;
+import com.gao.utils.JdbcUtil;
+
+public class UserInfoDAOImpl implements UserInfoDAO {
+
+	@Override
+	public int insert(UserInfo user) throws Exception {
+		Connection conn = JdbcUtil.getConn();
+		String sql = "insert into user_info(`uname`,`udate`,`umoney`)values(?,?,?)";
+		Object[] params = {user.getUname(),user.getUdate(),user.getUmoney()};
+		QueryRunner qr = new QueryRunner();
+		int count = qr.update(conn,sql,params);
+		JdbcUtil.closeConn(conn);
+		return count;
+	}
+
+	@Override
+	public int update(UserInfo user) throws Exception {
+		Connection conn = JdbcUtil.getConn();
+		String sql = "update user_info set `uname`=?,`udate`=?,`umoney`=? where `uid`=?";
+		Object[] params = {user.getUname(),user.getUdate(),user.getUmoney(),user.getUid()};
+		QueryRunner qr = new QueryRunner();
+		int count = qr.update(conn,sql,params);
+		JdbcUtil.closeConn(conn);
+		return count;
+	}
+
+	@Override
+	public int delete(UserInfo user) throws Exception {
+		Connection conn = JdbcUtil.getConn();
+		String sql = "insert into user_info(`uname`,`udate`,`umoney`)values(?,?,?)";
+		Object[] params = {user.getUname(),user.getUdate(),user.getUmoney()};
+		QueryRunner qr = new QueryRunner();
+		int count = qr.update(conn,sql,params);
+		JdbcUtil.closeConn(conn);
+		return count;
+	}
+
+	@Override
+	public int findUserCount() throws Exception {
+		Connection conn = JdbcUtil.getConn();
+		String sql = "insert into user_info(`uname`,`udate`,`umoney`)values(?,?,?)";
+		Object[] params = {user.getUname(),user.getUdate(),user.getUmoney()};
+		QueryRunner qr = new QueryRunner();
+		int count = qr.update(conn,sql,params);
+		JdbcUtil.closeConn(conn);
+		return count;
+	}
+
+	@Override
+	public List<UserInfo> findUserByPageCount(Integer start, Integer size) throws Exception {
+		Connection conn = JdbcUtil.getConn();
+		String sql = "insert into user_info(`uname`,`udate`,`umoney`)values(?,?,?)";
+		Object[] params = {user.getUname(),user.getUdate(),user.getUmoney()};
+		QueryRunner qr = new QueryRunner();
+		int count = qr.update(conn,sql,params);
+		JdbcUtil.closeConn(conn);
+		return count;
+	}
+
+	@Override
+	public UserInfo findUserByID(Integer id) throws Exception {
+		Connection conn = JdbcUtil.getConn();
+		String sql = "insert into user_info(`uname`,`udate`,`umoney`)values(?,?,?)";
+		Object[] params = {user.getUname(),user.getUdate(),user.getUmoney()};
+		QueryRunner qr = new QueryRunner();
+		int count = qr.update(conn,sql,params);
+		JdbcUtil.closeConn(conn);
+		return count;
+	}
+
+}

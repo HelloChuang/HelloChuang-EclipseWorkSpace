@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<script type="text/javascript"  href="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
+<script type="text/javascript"  href="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<title>首页</title>
+</head>
+<body>
+<form action="AddUserAction">
+	姓名:<input type="text" name="uname" required="required" placeholder="请输入姓名..."/><br/>
+	时间:<input type="date" name="udate" required="required" placeholder="请输入入会时间..."/><br/>
+	会费:<input type="number" name="umoney" required="required" placeholder="请输入会费..."/><br/>
+	<button type="submit">确定</button><button type="reset">取消</button>
+</form>
+</body>
+</html>

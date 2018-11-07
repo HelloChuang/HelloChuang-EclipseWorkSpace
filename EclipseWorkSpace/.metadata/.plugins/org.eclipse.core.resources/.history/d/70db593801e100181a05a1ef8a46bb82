@@ -1,0 +1,93 @@
+package com.gao.dao.impl;
+
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+
+import com.gao.dao.StuDAO;
+import com.gao.entity.Area;
+import com.gao.entity.School;
+import com.gao.entity.Score;
+import com.gao.entity.Student;
+@Repository
+@Scope("prototype")
+public class StuDAOImpl implements StuDAO {
+	@Autowired
+	private QueryRunner qr;
+	
+	public List<Student> findStuByPageList(Integer start, Integer size) throws Exception {
+		String sql = "select * from v1 limit ?,?";
+		Object [] params = {start,size};
+		List<Student> students = qr.query(sql, new BeanListHandler<Student>(Student.class),params);
+		
+		for (Student student : students) {
+			sql = "SELECT su.su_name suname,r.r_score score FROM result r INNER JOIN `subject` su on su.su_id = r.su_id WHERE r.s_id = ?";
+			Object [] params2 = {student.getSid()};
+			List<Score> scores = qr.query(sql, new BeanListHandler<Score>(Score.class),params2);
+			for (Score score : scores) {
+				student.getScores().put(score.getSuname(), score.getScore());
+			}
+		}
+		
+		return students;
+	}
+
+	public Integer findStuByPageListCount() throws Exception {
+		String sql = "select count(*) from v1";
+		Number number = qr.query(sql, new ScalarHandler<Number>(1));
+		int value = number.intValue();
+		return value;
+	}
+
+	public Student findStuByID(Integer id) throws Exception {
+		String sql = "select * from v1 where sid = ?";
+		Object[] params = {id};
+		Student student = qr.query(sql, new BeanHandler<Student>(Student.class),params);
+		return student;
+	}
+
+	public int insert(Student stu) throws Exception {
+		String sql = "insert into student values(null,?,?,?,?)";
+		Object[] params = {stu.getSname(),stu.getSex(),stu.getExamnum(),stu.getScid()};
+		qr.update(sql,params);
+		
+		sql="select last_insert_id";
+		Number id = qr.query(sql, new ScalarHandler<Number>(1));
+		sql = "insert into result values(null,1,?,?),(null,2,?,?),(null,3,?,?),(null,4,?,?)";
+		Object[] params2 = {id,stu.getScores().get("语文"),id,stu.getScores().get("数学"),id,stu.getScores().get("英语"),id,stu.getScores().get("综合")};
+		qr.update(sql,params2);
+		return 0;
+	}
+
+	public int delete(Student stu) throws Exception {
+		String sql = "delete from student where `s_id`=?";
+		Object[] params = {stu.getSid()};
+		qr.update(sql,params);
+		return 0;
+	}
+
+	public int update(Student stu) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public List<Area> findAllAreas() throws Exception {
+		String sql = "select a_id aid,a_name aname from area";
+		List<Area> areas = qr.query(sql, new BeanListHandler<Area>(Area.class));
+		return areas;
+	}
+
+	public List<School> findSchoolsByAid(Integer aid) throws Exception {
+		String sql = "select sc_id scid,sc_name scname from school where a_id = ?";
+		Object[] params = {aid};
+		List<School> schools = qr.query(sql, new BeanListHandler<School>(School.class),params);
+		return schools;
+	}
+
+}

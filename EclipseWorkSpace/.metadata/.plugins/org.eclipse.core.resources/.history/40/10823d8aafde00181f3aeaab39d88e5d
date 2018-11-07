@@ -1,0 +1,13 @@
+package com.gao.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class ServalAction {
+	@RequestMapping("method1")
+	public String method1(Integer uid,String uname){
+		System.out.println(uid+uname);
+		return "forward:/show.jsp";
+	}
+}

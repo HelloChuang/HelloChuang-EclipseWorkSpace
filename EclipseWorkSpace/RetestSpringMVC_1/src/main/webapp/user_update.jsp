@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<script type="text/javascript" href="${pageContext.request.contextPath}/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" href="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<title>添加人员</title>
+</head>
+<body>
+		<form action="userUpdate" method="post" class="col-xs-12">
+		<input type="hidden" value="${user.uid}" name="uid"/>
+			<table class="table table-hover">
+				<tr class="warning" align="center"><td><h1>更新人员信息</h1></td></tr>
+				<tr class="success">
+				<td>请输入姓名:<input value="${user.uname}"class="form-control" type="text" name="uname" /></td>
+				</tr>
+				<tr class="success">
+				<td>请输入入会时间:<input value="${user.udate}"class="form-control"type="date" name="udate" /></td>
+				</tr>
+				<tr class="success">
+				<td>请输入会费:<input value="${user.umoney}"class="form-control"type="number" name="umoney" /></td>
+				</tr>
+				<tr align="center">
+					<td>
+					<button type="submit"class="btn btn-success">确定</button>
+					<button class="btn btn-default" type="reset" onclick="javascript:history.go(-1)">取消</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+</body>
+</html>

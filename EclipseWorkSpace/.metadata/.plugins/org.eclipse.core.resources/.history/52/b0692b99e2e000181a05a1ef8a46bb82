@@ -1,0 +1,5 @@
+package com.gao.entity;
+
+public class Student {
+	
+}

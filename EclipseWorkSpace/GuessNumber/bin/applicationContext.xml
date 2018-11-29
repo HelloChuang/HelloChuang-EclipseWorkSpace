@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        ">
+
+
+	<!-- 1. 配置注解bean的包扫描器 -->
+	<context:component-scan base-package="com.gao.dao" />
+
+	<!-- 2. 配置数据源 -->
+	<bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- 配置四大属性 -->
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/guessdb?characterEncoding=UTF-8" />
+		<property name="user" value="root" />
+		<property name="password" value="root" />
+	</bean>
+	<!-- 3. 配置queryrunner对象(多例) -->
+	<bean class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+		<constructor-arg name="ds" ref="ds" />
+	</bean>
+	
+</beans>

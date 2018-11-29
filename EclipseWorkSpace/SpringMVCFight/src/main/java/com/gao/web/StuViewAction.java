@@ -1,8 +1,10 @@
 package com.gao.web;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -70,4 +72,33 @@ public class StuViewAction {
 	public @ResponseBody List<School> findSchoolsByAid(Integer aid)throws Exception{
 		return service.findSchoolsByAid(aid);
 	}
+	@RequestMapping("/studentTongJiIndex")
+	public ModelAndView studentTongJiIndex()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		Map<String, Object> maps = service.chart1();
+		mv.addObject("maps", maps);
+		mv.setViewName("forward:/stu_chart.jsp");
+		return mv;
+	}
+	@RequestMapping("/stuChart1")
+	public @ResponseBody List stuChart1()throws Exception{
+		List list = service.chart2();
+		System.out.println(list);
+		return list;
+	}
+	@RequestMapping("/stuChart2")
+	public @ResponseBody List stuChart2()throws Exception{
+		List list = service.chart3();
+		System.out.println(list);
+		return list;
+	}
+	@RequestMapping("/stuChart3")
+	public @ResponseBody List stuChart3()throws Exception{
+		List list = service.chart4();
+		System.out.println(list);
+		return list;
+	}
+
+		
+	
 }

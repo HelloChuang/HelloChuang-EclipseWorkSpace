@@ -5,7 +5,7 @@ public class Test17 {
 		int [] arr = {8,6,2,1,5,8,9,5,4};
 		heapSort(arr);
 		//bubbleSort(arr);
-		//selectSort(arr);
+		selectSort(arr);
 		QSort(arr);
 		print(arr);
 	}

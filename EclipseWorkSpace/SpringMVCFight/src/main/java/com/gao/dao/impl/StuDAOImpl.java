@@ -1,10 +1,16 @@
 package com.gao.dao.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.ArrayHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ColumnListHandler;
+import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -111,4 +117,48 @@ public class StuDAOImpl implements StuDAO {
 		return schools;
 	}
 
+	public Map<String, Object> chart1() throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		String sql = "select * from v3";
+		map = qr.query(sql, new MapHandler());
+		return map;
+	}
+
+	
+	public List chart2() throws Exception {
+		List list = new ArrayList<>();
+		String sql = "select * from v4";
+		List<String> l1 = qr.query(sql, new ColumnListHandler<String>(1));				
+		List<Long> l2 = qr.query(sql, new ColumnListHandler<Long>(2));	
+		list.add(l1);
+		list.add(l2);
+		return list;
+	}
+	@Override
+	public List chart3() throws Exception {
+		List list = new ArrayList<>();
+		String sql = "select * from v5";
+		List<String> l1 = qr.query(sql, new ColumnListHandler<String>(1));	
+		List<Long> l2 = qr.query(sql, new ColumnListHandler<Long>(2));	
+		List<Long> l3 = qr.query(sql, new ColumnListHandler<Long>(3));	
+		List<Long> l4 = qr.query(sql, new ColumnListHandler<Long>(4));	
+		list.add(l1);
+		list.add(l2);
+		list.add(l3);
+		list.add(l4);
+		
+		return list;
+	}
+	@Override
+	public List chart4() throws Exception {
+		List list = new ArrayList<>();
+		String sql = "select f,s,t,o from v3";
+		Object[] objects = qr.query(sql, new ArrayHandler());
+		for (Object o : objects) {
+			list.add(o);
+		}
+		
+
+		return list;
+	}
 }

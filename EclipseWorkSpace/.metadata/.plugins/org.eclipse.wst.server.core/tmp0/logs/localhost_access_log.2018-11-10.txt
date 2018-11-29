@@ -1,0 +1,11 @@
+127.0.0.1 - - [10/Nov/2018:15:53:02 +0800] "GET / HTTP/1.1" 404 1076
+127.0.0.1 - - [10/Nov/2018:15:53:08 +0800] "GET /SpringMVCFight HTTP/1.1" 302 -
+127.0.0.1 - - [10/Nov/2018:15:53:08 +0800] "GET /SpringMVCFight/ HTTP/1.1" 200 1336
+127.0.0.1 - - [10/Nov/2018:15:53:09 +0800] "GET /SpringMVCFight/css/bootstrap.min.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Nov/2018:15:53:09 +0800] "GET /SpringMVCFight/js/jquery-1.9.1.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Nov/2018:15:53:09 +0800] "GET /SpringMVCFight/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Nov/2018:15:53:09 +0800] "GET /SpringMVCFight/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 -
+127.0.0.1 - - [10/Nov/2018:15:53:09 +0800] "GET /favicon.ico HTTP/1.1" 404 1087
+127.0.0.1 - - [10/Nov/2018:15:53:11 +0800] "GET /SpringMVCFight/studentTongJiIndex HTTP/1.1" 200 3290
+127.0.0.1 - - [10/Nov/2018:15:53:11 +0800] "GET /SpringMVCFight/js/echarts.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Nov/2018:15:53:12 +0800] "POST /SpringMVCFight/stuChart1 HTTP/1.1" 200 295

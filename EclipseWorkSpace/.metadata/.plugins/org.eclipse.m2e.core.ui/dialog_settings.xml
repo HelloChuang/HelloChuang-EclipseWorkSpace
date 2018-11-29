@@ -8,6 +8,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="JavaEETest"/>
 			<item value="JustTest"/>
 			<item value="SpringMVCFight"/>
 			<item value="RetestSpringMVC_1"/>
@@ -69,6 +70,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="I:\EclipseWorkSpace\JDBCTest"/>
 			<item value="I:\EclipseWorkSpace\JDBCTest1025"/>
 			<item value="I:\EclipseWorkSpace\手写容器实现"/>
 			<item value="I:\EclipseWorkSpace\jsptest"/>

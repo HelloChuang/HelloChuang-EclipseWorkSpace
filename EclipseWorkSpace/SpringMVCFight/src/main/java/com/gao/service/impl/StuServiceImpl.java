@@ -1,6 +1,7 @@
 package com.gao.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -55,4 +56,22 @@ public class StuServiceImpl implements StuService {
 		return st.update(stu);
 	}
 
+	public Map<String, Object> chart1() throws Exception {
+		
+		return st.chart1();
+	}
+
+	@Override
+	public List chart2() throws Exception {
+		return st.chart2();
+	}
+
+	@Override
+	public List chart3() throws Exception {
+		return st.chart3();
+	}
+	@Override
+	public List chart4() throws Exception {
+		return st.chart4();
+	}
 }

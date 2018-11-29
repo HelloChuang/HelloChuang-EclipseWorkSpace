@@ -24,6 +24,7 @@ class Productor implements Runnable{
 	
 	@Override
 	public void run() {
+		
 		int i = 1;
 		while(true){
 			synchronized (p) {  //当生产者开始生产时开始加锁，不让消费者进行消费
@@ -39,11 +40,13 @@ class Productor implements Runnable{
 				p.notify();   //唤醒和等待都要在锁内执行，
 				try {
 					p.wait();
+					System.out.println("=======================");
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				
 			}
+			System.out.println("ZZZZZZZZZZZZZZZZZZZZZZZZ");
 		
 		}
 	}

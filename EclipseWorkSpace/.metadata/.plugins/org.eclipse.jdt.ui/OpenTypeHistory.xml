@@ -14,8 +14,11 @@
 <typeInfo handle="=SSD_Test1/I:\/JRE\/lib\/rt.jar&lt;javax.rmi.CORBA(StubDelegate.class[StubDelegate" modifiers="1537" timestamp="1538663708872"/>
 <typeInfo handle="=RetestSpringMVC_1/src\/main\/java&lt;com.gao.dao{UserDAO.java[UserDAO" modifiers="513" timestamp="1541326314795"/>
 <typeInfo handle="=RetestSpringMVC_1/src\/main\/java&lt;com.gao.service{UserService.java[UserService" modifiers="513" timestamp="1541327061446"/>
-<typeInfo handle="=SpringMVCFight/src\/main\/java&lt;com.gao.dao{StuDAO.java[StuDAO" modifiers="513" timestamp="1541415072349"/>
-<typeInfo handle="=SpringMVCFight/src\/main\/java&lt;com.gao.service{StuService.java[StuService" modifiers="513" timestamp="1541415792923"/>
+<typeInfo handle="=SpringMVCFight/src\/main\/java&lt;com.gao.dao{StuDAO.java[StuDAO" modifiers="513" timestamp="1541935057029"/>
+<typeInfo handle="=SpringMVCFight/src\/main\/java&lt;com.gao.service{StuService.java[StuService" modifiers="513" timestamp="1541935162276"/>
 <typeInfo handle="=JustTest/src\/main\/java&lt;com.gao.dao{UserDAO.java[UserDAO" modifiers="513" timestamp="1541511823200"/>
 <typeInfo handle="=JustTest/src\/main\/java&lt;com.gao.service{UserService.java[UserService" modifiers="513" timestamp="1541511873096"/>
+<typeInfo handle="=JavaEETest/src\/main\/java&lt;com.gao.dao{BookDAO.java[BookDAO" modifiers="513" timestamp="1541568935063"/>
+<typeInfo handle="=JavaEETest/src\/main\/java&lt;com.gao.service{BookService.java[BookService" modifiers="513" timestamp="1541568961997"/>
+<typeInfo handle="=GuessNumber/src&lt;com.gao.dao{UserDAO.java[UserDAO" modifiers="513" timestamp="1541928307851"/>
 </typeInfoHistroy>

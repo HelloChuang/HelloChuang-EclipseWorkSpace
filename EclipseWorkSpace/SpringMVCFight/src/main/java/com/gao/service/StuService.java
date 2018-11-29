@@ -1,6 +1,7 @@
 package com.gao.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.gao.entity.Area;
 import com.gao.entity.School;
@@ -13,7 +14,10 @@ public interface StuService {
 	
 	public List<Area> findAllAreas() throws Exception;
 	public List<School> findSchoolsByAid(Integer aid) throws Exception;
-	
+	public Map<String,Object> chart1()throws Exception;
+	public List chart2()throws Exception;
+	public List chart3()throws Exception;
+	public List chart4()throws Exception;
 	
 	public int insert(Student stu)throws Exception;
 	public int delete(Student stu)throws Exception;
